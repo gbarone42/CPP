@@ -1,16 +1,16 @@
 #include "phonebook.h"
 #include <iostream>
 #include <string>
-#include <sstream> // For std::istringstream
+#include <sstream>//For std::istringstream
 
 int main() {
-    PhoneBook phoneBook; //crea un'istanza della classe phonebook
-    std::string command; //dichiarazione di una variabile per contenere i comandi in input
+    PhoneBook phoneBook;//crea un'istanza della classe phonebook... declaring a variable named phonebook
+    std::string command;//dichiarazione di una variabile per contenere i comandi in input
 
     while (true) {
-        std::cout << "Enter command (ADD, SEARCH, or EXIT): "; //output di un prompt che chiede un comando
-        std::getline(std::cin, command); // legge una linea dallo standard input sulla variabile 'command'
-
+        std::cout << "Enter command (ADD, SEARCH, or EXIT): ";//output di un prompt che chiede un comando
+        std::getline(std::cin, command);//legge una linea dallo standard input sulla variabile 'command'
+		//command will contain exactly what was typed by the user without the trailing newline character.
         if (command == "EXIT")
 		{
             break;
@@ -50,26 +50,31 @@ int main() {
         }
 		else if (command == "SEARCH")
 		{
-            phoneBook.displayContacts();
+            phoneBook.displayContacts();// display list of contact
 
             std::cout << "Enter index to view details (or type back to return): ";
-            std::getline(std::cin, command);
+            std::getline(std::cin, command); //ask user to put a input
             if (command == "back") {
-                continue;
+                continue;//If the user types "back", it will skip the remaining steps and continue the loop.
             }
 
             int index = 0;
-            std::istringstream iss(command);
+            std::istringstream iss(command);//Converts the input string command to an integer index using std::istringstream
             if (!(iss >> index)) {
                 std::cout << "Invalid input. Please enter a valid number." << std::endl;
                 continue;
             }
 
             phoneBook.displayContactDetail(index);
+			//Calls displayContactDetail on the PhoneBook instance to show details of the contact at the given index.
         } else {
-            std::cout << "Invalid command. Please use ADD, SEARCH, or EXIT." << std::endl;
+            std::cout << "Invalid command. Please use ADD, SEARCH, or EXIT." << std::endl; //handling invalid commands 
         }
     }
 
     return 0;
 }
+
+//Class: A template or blueprint that defines what attributes and methods its objects will have.
+//Object: An instance of a class. Each object of a class has its own identity, and while it shares the structure of the class, it can hold its own state (values of its properties).
+//The PhoneBook class likely has a constructor, which is a special type of method that is called automatically when a new object is created. This constructor sets up the initial state of the object, such as initializing its attributes. If no constructor is explicitly defined in the class, the compiler provides a default constructor that initializes the object with default values.

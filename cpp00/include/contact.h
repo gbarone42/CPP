@@ -19,7 +19,9 @@ private:
 public:
     Contact() {} //constructor is defined but doesn perform any initialization, provides a default constructor
 
-    void setFirstName(const std::string &value) { firstName = value; }
+//setFirstName metodo:                   //'&' indicates that the parameter is being passed by reference: it means that instead of creating a new copy of the parameter's value for the function to use, the function accesses the original variable directly               
+										//The 'const' qualifier is used with a reference to ensure that the function does not alter the variable it references. 
+	void setFirstName(const std::string &value) { firstName = value; } //Passing by reference means that the function can access the argument directly without copying it, which is more efficient for large types like strings
     void setLastName(const std::string &value) { lastName = value; }
     void setNickname(const std::string &value) { nickname = value; }
     void setPhoneNumber(const std::string &value) { phoneNumber = value; }

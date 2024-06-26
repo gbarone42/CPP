@@ -5,13 +5,11 @@
 #include <string>
 #include <sstream>//For std::istringstream
 
-int main()
-{
+int main() {
     PhoneBook phoneBook;//crea un'istanza della classe phonebook... declaring a variable named phonebook
     std::string command;//dichiarazione di una variabile per contenere i comandi in input //std::string, is an object of the class iostream is a dynamic, resizable array of characters
 
-    while (true)
-    {
+    while (true) {
         std::cout << "Enter command (ADD, SEARCH, or EXIT): ";//std::cout is an object of class std::iostream that represents the standard output stream, used to output data to the console. 
         std::getline(std::cin, command);//legge una linea dallo standard input e la salva sulla variabile 'command'
 		//command will contain exactly what was typed by the user without the trailing newline character.

@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     if (argc <= 1)//check if it's just the program name
     {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
     }
     else
     {
@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
         }
         std::cout << '\n';//Outputs a newline character at the end to ensure the output ends with a newline.
     }//std::endl is a manipulator in C++ that ends the current line of output ('\n') and flushes the output buffer.
-
     return 0;
 }
 

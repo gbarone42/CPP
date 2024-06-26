@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> //<iostream> is fundamental for performing input and output operations in C++. It provides convenient ways to interact with users via std::cin and std::cout, handle errors with std::cerr, and perform logging with std::clog.
 #include <cctype> // for std::toupper()
 
 int main(int argc, char *argv[])
@@ -19,8 +19,9 @@ int main(int argc, char *argv[])
             //This conversion ensures that the output operation (std::cout << ...;) correctly interprets the character as a char type, which is expected by std::cout.
             std::cout << " "; // Separate arguments with space
         }
-        std::cout << std::endl;//Outputs a newline character at the end to ensure the output ends with a newline.
-    }
+        std::cout << '\n';//Outputs a newline character at the end to ensure the output ends with a newline.
+    }//std::endl is a manipulator in C++ that ends the current line of output ('\n') and flushes the output buffer.
+
     return 0;
 }
 

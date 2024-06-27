@@ -6,6 +6,9 @@
 #include <iomanip> // For std::setw
 
 class PhoneBook { //begins the definition of phonebook class, Everything between the curly braces {} defines what this class is and can do.
+
+//private and public are 'access specifiers', it define the access control for the members of a class
+//private ensures encapsulation, a core principle of object-oriented programming
 private:
     Contact contacts[8];  // Plain C-style array holds up to 8 Contact objects //static allocation
     int currentContactIndex; //an integer that keeps track of the number of contacts currently stored and also serves as an index for the next contact to be added.
@@ -68,6 +71,8 @@ private:
 
 #endif // PHONEBOOK_H
 
+
+//Each std::string object in your class automatically allocates and deallocates its memory as needed, without requiring explicit cleanup code.
 /*
 std::setw(int width)
 From <iomanip>, used to set the width of the next input/output field.

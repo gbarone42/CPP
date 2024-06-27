@@ -19,14 +19,16 @@ public:
         ++currentContactIndex;// variable that keeps track of how many contacts have been added.
     }
 	//displayContacts: Prints a formatted table header, then iterates through the contacts array up to currentContactIndex (or 8, whichever is smaller), printing each contact's details. Output formatting is handled using std::setw to ensure alignment.
-    void displayContacts() const { // Prints column headers for the contact list.
+    void displayContacts() const
+    { // Prints column headers for the contact list.
         std::cout << std::setw(10) << "Index" << "|";//std::setw(10): This function, from the <iomanip> header, sets the width of the next printed field to 10 characters. This ensures that each column has uniform width, leading to neatly aligned tables in the console output.
         std::cout << std::setw(10) << "First Name" << "|";
         std::cout << std::setw(10) << "Last Name" << "|";
         std::cout << std::setw(10) << "Nickname" << std::endl;
 
         int displayCount = currentContactIndex < 8 ? currentContactIndex : 8; //This line calculates how many contacts to display. If the currentContactIndex (the number of contacts added so far) is less than 8, it uses that number. Otherwise, it uses 8, which is the capacity of the contacts array. This ensures that only valid entries are considered for display.
-        for (int i = 0; i < displayCount; ++i) {
+        for (int i = 0; i < displayCount; ++i)
+        {
             std::cout << std::setw(10) << i << "|";//std::setw(10) << i: Displays the index of each contact, ensuring it occupies 10 characters width.
             std::cout << std::setw(10) << truncate(contacts[i].getFirstName(), 10) << "|";
             std::cout << std::setw(10) << truncate(contacts[i].getLastName(), 10) << "|";
@@ -34,8 +36,10 @@ public:
         }//Getters (getFirstName(), getLastName(), getNickname()): These functions retrieve the respective fields from each Contact object. The retrieved values are then passed to the truncate() function to ensure they fit within the column width.
     }
 //displayContactDetail: Displays detailed information for a contact at a given index. It first checks if the index is valid (within the range of added contacts). If not, it prints an error message.
-    void displayContactDetail(int index) const {
-        if (index < 0 || index >= (currentContactIndex < 8 ? currentContactIndex : 8)) {
+    void displayContactDetail(int index) const
+    {
+        if (index < 0 || index >= (currentContactIndex < 8 ? currentContactIndex : 8))
+        {
             std::cout << "Invalid index." << std::endl;
             return;
         }
@@ -49,10 +53,14 @@ public:
 
 private:
 //truncate: A utility function used to truncate strings that exceed a given width, appending a period '.' to indicate truncation. This is useful for maintaining column widths in displayContacts.
-    std::string truncate(const std::string& str, size_t width) const {
-        if (str.length() > width) {
+    std::string truncate(const std::string& str, size_t width) const
+    {
+        if (str.length() > width)
+        {
             return str.substr(0, width - 1) + ".";
-        } else {
+        }
+        else
+        {
             return str;
         }
     }

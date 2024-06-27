@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
         for (int i = 1; i < argc; ++i)//Iterates through each command-line argument starting from index 1 (argv[1]), skipping the program name (argv[0]).
         {
             for (char *ptr = argv[i]; *ptr != '\0'; ++ptr)//Iterates through each character of the current argument (argv[i]).
+           //dichiaro un puntatore a char
+           //char *ptr = argv[i]; initializes ptr to point to the beginning of the C-style string stored in argv[i]. It allows you to manipulate or inspect the characters of the command-line argument argv[i] using pointer arithmetic or dereferencing,
             {
                 std::cout << static_cast<char>(std::toupper(*ptr));//std::toupper(*ptr): Converts the current character (*ptr) to uppercase using std::toupper()
             }//std::cout << static_cast<char>(std::toupper(*ptr));: Outputs the uppercase character to standard output.
@@ -23,8 +25,6 @@ int main(int argc, char *argv[])
     }//std::endl is a manipulator in C++ that ends the current line of output ('\n') and flushes the output buffer.
     return 0;
 }
-
-
 
 /*
 
@@ -64,5 +64,20 @@ due to implicit type conversion. This is safe because characters are internally 
 and std::toupper performs the necessary conversion to uppercase and returns the corresponding ASCII value.
 The static_cast<char> in your code ensures thatthe result is properly converted back to char before it's passed 
 to std::cout for output, ensuring correct character display.
+
+*/
+
+/*
+
+Suppose you run a program ./myprogram arg1 arg2. Inside the program:
+
+argc would be 3 (including the program name).
+argv[0] points to "./myprogram".
+argv[1] points to "arg1".
+argv[2] points to "arg2".
+
+When i = 1, argv[i] is "arg1".
+ptr is initialized to argv[i], so ptr initially points to the first character of "arg1", which is 'a'.
+The inner loop then iterates over each character (*ptr) in "arg1" until it reaches '\0' (end of string).
 
 */

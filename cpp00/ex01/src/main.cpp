@@ -1,15 +1,17 @@
 //#include, they are preprocessor directives that tell the compiler to include
 //the contents of the specified files before actual compilation begins
-#include "phonebook.h"
-#include <iostream>
+#include "phonebook.h"//include the custom class "phonebook"
+#include <iostream>//input/output operations
 #include <string>
 #include <sstream>//For std::istringstream
 
-int main() {
+int main()
+{
     PhoneBook phoneBook;//crea un'istanza della classe phonebook... declaring a variable named phonebook
     std::string command;//dichiarazione di una variabile per contenere i comandi in input //std::string, is an object of the class iostream is a dynamic, resizable array of characters
 
-    while (true) {
+    while (true)
+    {
         std::cout << "Enter command (ADD, SEARCH, or EXIT): ";//std::cout is an object of class std::iostream that represents the standard output stream, used to output data to the console. 
         std::getline(std::cin, command);//legge una linea dallo standard input e la salva sulla variabile 'command'
 		//command will contain exactly what was typed by the user without the trailing newline character.
@@ -49,7 +51,7 @@ int main() {
 			//after all the fiels are filled
             phoneBook.addContact(contact);//the contact is added to phonebook // % modulo operation manages the circular buffer mechanism i
 
-            std::cout << "Contact added successfully." << std::endl; //confermation for the user
+            std::cout << "Contact added successfully." << '\n'; //confermation for the user
         }
 		else if (command == "SEARCH")
 		{
@@ -57,20 +59,25 @@ int main() {
 
             std::cout << "Enter index to view details (or type back to return): ";
             std::getline(std::cin, command); //ask user to put a input
-            if (command == "back") {
+            if (command == "back")
+            {
                 continue;//If the user types "back", it will skip the remaining steps and continue the loop.
             }
 
             int index = 0;
-            std::istringstream iss(command);//Converts the input string command to an integer index using std::istringstream
-            if (!(iss >> index)) {
+            std::istringstream iss(command);// declared //loads the string into iss, making it ready to be treated as a stream from which data can be extracted
+            if (!(iss >> index))//The >> operator is used to extract data from iss and store it in the variable index
+            {
                 std::cout << "Invalid input. Please enter a valid number." << std::endl;
                 continue;
             }
-
+//iss is a variable name for an object of type std::istringstream. This object is specifically used to perform input operations from strings,
+//which means it treats a string as a stream and allows you to extract values from it as if you were reading from std::cin or any other input stream.
             phoneBook.displayContactDetail(index);
 			//Calls displayContactDetail on the PhoneBook instance to show details of the contact at the given index.
-        } else {
+        }
+        else
+        {
             std::cout << "Invalid command. Please use ADD, SEARCH, or EXIT." << std::endl; //handling invalid commands 
         }
     }
@@ -87,3 +94,30 @@ int main() {
 //a component from the C++ Standard Library, which is useful for clarity and avoiding
 //conflicts. For example, you might have your own function or class named string,
 //and using std::string clearly distinguishes the standard library version.
+
+//
+//The std::string class in C++ provides dynamic size management for strings,
+//which means it can automatically adjust its size to accommodate the amount of data it holds. 
+//This is a significant advantage over C-style strings, which are essentially fixed-size arrays of characters.
+//All the memory allocation and deallocation are handled internally by the std::string class. As a user of the class,
+//you do not need to worry about memory management, which reduces the risks of memory leaks and buffer overflows that
+//are common with manual memory management in C-style strings.
+
+
+/*
+Purpose of <<
+Data Direction: The << operator directs the data to the intended destination. In the case of std::cout, it directs the data to the standard output (typically the console).
+Chainable Operations: The << operator also allows for chaining multiple operations in a single statement. This makes code compact and easy to understand, as it linearly shows the flow of data manipulation and output.
+
+std::cout: This is the standard output stream used to print data to the console.
+<< operators: These are used to insert data into the output stream. They are what push the data (including formatting commands and the actual text) into the stream directed towards the console or other output mediums.
+std::setw(10): This manipulator sets the minimum field width for the next data to be inserted into the stream. It ensures that the "Nickname" string will occupy at least 10 characters' width on the output.
+"Nickname": This is the actual string data that is being output.
+std::endl: This inserts a newline character into the stream and flushes the stream, ensuring all output is immediately written to the console.
+
+A stream is an abstraction that represents a device on which input and ouput operations are performed. A stream can basically be thought of as a source or destination of characters of indefinite length.
+Output Operations: When you use std::cout, you typically use the insertion operator (<<) to send data into the stream. This operator is overloaded to handle different types of data seamlessly, such as integers, floating-point numbers, strings, and so forth.
+Buffering: std::cout is generally buffered, which means that output sent to std::cout may not immediately appear on the terminal. The buffer is flushed (i.e., the data is sent to the terminal) when it's full, when std::endl is inserted into the stream, or when the program terminates. 
+
+
+*/

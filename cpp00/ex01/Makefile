@@ -21,4 +21,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 clean:
 	rm -rf $(OBJ_DIR) $(EXEC)
 
-.PHONY: all clean
+fclean: clean
+	rm -f $(EXEC)
+
+re: fclean all
+
+.PHONY: all clean fclean re

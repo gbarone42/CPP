@@ -1,3 +1,29 @@
+#include <iostream>
+#include <cctype>
+
+int main(int argc, char *argv[])
+{
+    if (argc <= 1)
+    {
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
+    }
+    else
+    {
+        for (int i = 1; i < argc; ++i)
+        {
+            for (char *ptr = argv[i]; *ptr != '\0'; ++ptr)
+            {
+                std::cout << static_cast<char>(std::toupper(*ptr));//toupper restituisce un int invece che un char, quindi il cast serve a riconvertire esplicitamente l'int in char
+            }
+            std::cout << " ";
+        }
+        std::cout << '\n';
+    }
+    return 0;
+}
+
+
+/*
 #include <iostream> //<iostream> is fundamental for performing input and output operations in C++. It provides convenient ways to interact with users via std::cin and std::cout, handle errors with std::cerr, and perform logging with std::clog.
 #include <cctype> // for std::toupper()
 
@@ -25,7 +51,7 @@ int main(int argc, char *argv[])
     }//std::endl is a manipulator in C++ that ends the current line of output ('\n') and flushes the output buffer.
     return 0;
 }
-
+*/
 /*
 
 for (initialization; condition; update)

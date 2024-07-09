@@ -1,3 +1,77 @@
+
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
+
+#include "contact.h"
+#include <iostream>
+#include <iomanip>
+
+class PhoneBook {
+private:
+    Contact contacts[8];//8 elementi in totale
+    int currentContactIndex;//per tenere conto del numero totale di contatti aggiunti
+
+public:
+    PhoneBook() : currentContactIndex(0) {}
+
+    void addContact(const Contact &contact)
+    {
+        contacts[currentContactIndex % 8] = contact;
+        ++currentContactIndex;
+    }
+
+    void displayContacts() const
+    {
+        std::cout << std::setw(10) << "Index" << "|";
+        std::cout << std::setw(10) << "First Name" << "|";
+        std::cout << std::setw(10) << "Last Name" << "|";
+        std::cout << std::setw(10) << "Nickname" << std::endl;
+
+        int displayCount = currentContactIndex < 8 ? currentContactIndex : 8;// se il numero di contatti totali aggiunti è minore di 8 allora ne mostra tanti quanti il numero totale di contatti aggiunti, altrimenti ne mostra 8 che è il numero massimo di contatti di contacts[8]
+        for (int i = 0; i < displayCount; ++i)
+        {
+            std::cout << std::setw(10) << i << "|";
+            std::cout << std::setw(10) << truncate(contacts[i].getFirstName(), 10) << "|";
+            std::cout << std::setw(10) << truncate(contacts[i].getLastName(), 10) << "|";
+            std::cout << std::setw(10) << truncate(contacts[i].getNickname(), 10) << std::endl;
+        }
+    }
+
+    void displayContactDetail(int index) const
+    {
+        if (index < 0 || index >= (currentContactIndex < 8 ? currentContactIndex : 8))// stesso discorso di prima ma check anche per i numeri negativi
+        {
+            std::cout << "Invalid index." << std::endl;
+            return;
+        }
+        const Contact &contact = contacts[index];// const serve a assicurare che i dati acquisiti dall'oggetto ottenuto per referenza non vengano modificati, visto che sono stati acceduti
+        std::cout << "First Name: " << contact.getFirstName() << std::endl;
+        std::cout << "Last Name: " << contact.getLastName() << std::endl;
+        std::cout << "Nickname: " << contact.getNickname() << std::endl;
+        std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
+        std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+    }
+
+private:
+    std::string truncate(const std::string& str, size_t width) const
+    {
+        if (str.length() > width)// solamente se la lunghezza della stringa è maggiore di quella della ampiezza ammessa
+        {
+            return str.substr(0, width - 1) + ".";// allora dalla stringa orignale viene creata una nuova stringa dal primo elemento della stringa fino all'ampiezza massima meno uno con l'aggiunta di un . alla decima posizione
+        }
+        else
+        {
+            return str;
+        }
+    }
+};
+
+#endif // PHONEBOOK_H
+
+
+
+/*
+
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
@@ -17,13 +91,13 @@ public:
     PhoneBook() : currentContactIndex(0) {} //Constructor for PhoneBook initializes currentContactIndex to 0, indicating that there are no contacts initially.
 
     void addContact(const Contact &contact) //The const qualifier ensures that the contact object cannot be modified within this method.
-	{//addContact: Adds a new contact to the phone book. It uses the modulo operator % to wrap around if currentContactIndex exceeds 7, effectively using the array as a circular buffer. This ensures that once the array is full, adding new contacts will overwrite the oldest contact
+	{
         contacts[currentContactIndex % 8] = contact; //uses the modulo operator (%) to wrap around the index if currentContactIndex exceeds 7, making the contacts array behave like a circular buffer.
         ++currentContactIndex;// variable that keeps track of how many contacts have been added.
     }
 	//displayContacts: Prints a formatted table header, then iterates through the contacts array up to currentContactIndex (or 8, whichever is smaller), printing each contact's details. Output formatting is handled using std::setw to ensure alignment.
     void displayContacts() const
-    { // Prints column headers for the contact list.
+    {
         std::cout << std::setw(10) << "Index" << "|";//std::setw(10): This function, from the <iomanip> header, sets the width of the next printed field to 10 characters. This ensures that each column has uniform width, leading to neatly aligned tables in the console output.
         std::cout << std::setw(10) << "First Name" << "|";
         std::cout << std::setw(10) << "Last Name" << "|";
@@ -70,7 +144,7 @@ private:
 };
 
 #endif // PHONEBOOK_H
-
+*/
 
 //Each std::string object in your class automatically allocates and deallocates its memory as needed, without requiring explicit cleanup code.
 /*

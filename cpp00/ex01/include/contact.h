@@ -1,5 +1,36 @@
 #ifndef CONTACT_H
 #define CONTACT_H
+#include <string>
+
+class Contact {
+private:
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string phoneNumber;
+    std::string darkestSecret;
+
+public:
+    Contact() {}
+    void setFirstName(const std::string &value) { firstName = value; }
+    void setLastName(const std::string &value) { lastName = value; }
+    void setNickname(const std::string &value) { nickname = value; }
+    void setPhoneNumber(const std::string &value) { phoneNumber = value; }
+    void setDarkestSecret(const std::string &value) { darkestSecret = value; }
+    std::string getFirstName() const { return firstName; }
+    std::string getLastName() const { return lastName; }
+    std::string getNickname() const { return nickname; }
+    std::string getPhoneNumber() const { return phoneNumber; }
+    std::string getDarkestSecret() const { return darkestSecret; }
+};
+#endif
+
+
+
+/*
+
+#ifndef CONTACT_H
+#define CONTACT_H
 //these lines are "include guards", their purpose is to prevent multiple inclusions of the same header 
 #include <string> //std::string
 
@@ -42,6 +73,8 @@ public:
 //Thread Safety: In multi-threaded applications, const methods are inherently thread-safe when it comes to accessing shared data because they don't modify the shared state. Multiple threads can read from the same object without causing race conditions.
 #endif // CONTACT_H
 
+
+*/
 //In your Contact class, the data members such as firstName, lastName, nickname, phoneNumber, and darkestSecret are declared as private. This design choice protects these members from being modified directly by external functions or classes, which helps to maintain valid states and encapsulates the functionality specific to handling contact details.
 //The methods like setFirstName, setLastName, and getFirstName are declared as public. These methods provide controlled access to the private data:
 //Setter methods are used to modify the state of an object's attributes from outside the class. They are public methods that provide controlled access to private data members.//These methods allow external code to modify the private data in a controlled manner.

@@ -5,17 +5,17 @@
 #include <string>
 #include <sstream>//For std::istringstream
 
-void ensureInput(std::string& input, const std::string& fieldName)
+void ensureInput(std::string& input, const std::string& detail)
 {
     while (true)
     {
-        std::cout << fieldName << ": ";
+        std::cout << detail << ": ";
         std::getline(std::cin, input);
         if (!input.empty())
         {
             break;
         }
-        std::cout << "Invalid input. " << fieldName << " cannot be empty." << std::endl;
+        std::cout << "Invalid input. " << detail << " cannot be empty." << std::endl;
     }
 }
 
@@ -69,7 +69,7 @@ int main()
 
             int index = 0;
             std::istringstream iss(command);
-            if (!(iss >> index))
+            if (!(iss >> index))//attempts to read an integer from istringstream --> per capirci meglio : se iss >> index è falso, allora la condizione ! diventa vera ed entra nell'if
             {
                 std::cout << "Invalid input. Please enter a valid number." << std::endl;
                 continue;

@@ -1,5 +1,4 @@
-//#include, they are preprocessor directives that tell the compiler to include
-//the contents of the specified files before actual compilation begins
+
 #include "phonebook.h"//include the custom class "phonebook"
 #include <iostream>//input/output operations
 #include <string>
@@ -86,6 +85,9 @@ int main()
     return 0;
 }
 
+
+////#include, they are preprocessor directives that tell the compiler to include
+//the contents of the specified files before actual compilation begins
 /*
 int main()
 {

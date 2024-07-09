@@ -33,6 +33,10 @@ for (initialization; condition; update)
     // Code to be executed repeatedly
 }
 
+
+In the context of the for loop, both ++i and i++ will behave the same way because the increment operation is separate from the loop body.
+
+
 Initialization: This part is executed once at the beginning of the loop. It initializes a loop control variable or variables. It can declare variables that are used as loop counters.
 Condition: This is the condition that is evaluated before each iteration of the loop. If the condition evaluates to true, the loop continues executing; if it evaluates to false, the loop terminates.
 Update: This part is executed after each iteration of the loop, typically to update the loop control variable. It increments or decrements the loop counter, moving the loop closer to termination
@@ -80,4 +84,27 @@ When i = 1, argv[i] is "arg1".
 ptr is initialized to argv[i], so ptr initially points to the first character of "arg1", which is 'a'.
 The inner loop then iterates over each character (*ptr) in "arg1" until it reaches '\0' (end of string).
 
+*/
+
+
+
+/*
+
+and instance is a predefined object provided by some library
+
+*/
+
+
+/*
+
+
+std is a namespace.
+std::cout is an object of the std::ostream class within the std namespace.
+<< is the stream insertion operator, which is overloaded in the std::ostream class to handle various types of data (like strings, characters, integers, etc.).
+
+
+An overloaded operator is a function that provides a custom implementation of an operator for user-defined types.
+This function is defined in the class and can be used to perform operations on objects of that class.
+
+Overloaded Operator: A function that customizes the behavior of an operator for user-defined types.
 */

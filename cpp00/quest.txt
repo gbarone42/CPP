@@ -1,0 +1,21 @@
+//std::string
+cos'è?
+un metodo o un oggetto?
+io penso sia un oggetto
+
+
+are setter and getters both methods?
+why do getters dont get a void?
+
+
+
+
+return str.substr(0, width - 1) + ".";   from phonebook.h
+if (str.length() > width)
+are these ok with cpp98
+
+const Contact &contact = contacts[index];anche questo è particolare
+
+
+
+//GETTERS are readonly methods?

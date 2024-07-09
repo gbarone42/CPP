@@ -41,7 +41,7 @@ public:
 //displayContactDetail: Displays detailed information for a contact at a given index. It first checks if the index is valid (within the range of added contacts). If not, it prints an error message.
     void displayContactDetail(int index) const
     {
-        if (index < 0 || index >= (currentContactIndex < 8 ? currentContactIndex : 8))
+        if (index < 0 || index >= (currentContactIndex < 8 ? currentContactIndex : 8))// se è un numero minore di zero o se il numero è maggiore del numero massimo di index che c'è (che puo essere 8 ma anche di piu visto il circular buffer)
         {
             std::cout << "Invalid index." << std::endl;
             return;

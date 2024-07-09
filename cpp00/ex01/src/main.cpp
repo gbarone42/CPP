@@ -5,6 +5,88 @@
 #include <string>
 #include <sstream>//For std::istringstream
 
+void ensureInput(std::string& input, const std::string& fieldName)
+{
+    while (true)
+    {
+        std::cout << fieldName << ": ";
+        std::getline(std::cin, input);
+        if (!input.empty())
+        {
+            break;
+        }
+        std::cout << "Invalid input. " << fieldName << " cannot be empty." << std::endl;
+    }
+}
+
+int main()
+{
+    PhoneBook phoneBook;
+    std::string command;
+
+    while (true)
+    {
+        std::cout << "Enter command (ADD, SEARCH, or EXIT): ";
+        std::getline(std::cin, command);
+
+        if (command == "EXIT")
+        {
+            break;
+        }
+        else if (command == "ADD")
+        {
+            Contact contact;
+            std::string input;
+
+            ensureInput(input, "First name");
+            contact.setFirstName(input);
+
+            ensureInput(input, "Last name");
+            contact.setLastName(input);
+
+            ensureInput(input, "Nickname");
+            contact.setNickname(input);
+
+            ensureInput(input, "Phone number");
+            contact.setPhoneNumber(input);
+
+            ensureInput(input, "Darkest secret");
+            contact.setDarkestSecret(input);
+
+            phoneBook.addContact(contact);
+            std::cout << "Contact added successfully." << std::endl;
+        }
+        else if (command == "SEARCH")
+        {
+            phoneBook.displayContacts();
+
+            std::cout << "Enter index to view details (or type back to return): ";
+            std::getline(std::cin, command);
+            if (command == "back")
+            {
+                continue;
+            }
+
+            int index = 0;
+            std::istringstream iss(command);
+            if (!(iss >> index))
+            {
+                std::cout << "Invalid input. Please enter a valid number." << std::endl;
+                continue;
+            }
+
+            phoneBook.displayContactDetail(index);
+        }
+        else
+        {
+            std::cout << "Invalid command. Please use ADD, SEARCH, or EXIT." << std::endl;
+        }
+    }
+
+    return 0;
+}
+
+/*
 int main()
 {
     PhoneBook phoneBook;//crea un'istanza della classe phonebook... declaring a variable named phonebook
@@ -84,6 +166,8 @@ int main()
 
     return 0;
 }
+
+*/
 
 //Class: A template or blueprint that defines what attributes and methods its objects will have.
 //Object: An instance of a class. Each object of a class has its own identity, and while it shares the structure of the class, it can hold its own state (values of its properties).

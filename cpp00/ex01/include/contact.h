@@ -36,6 +36,8 @@ public:
     std::string getPhoneNumber() const { return phoneNumber; }
     std::string getDarkestSecret() const { return darkestSecret; }
 };
+
+
 //(const): When you declare a method with const after its parameter list (e.g., std::string getName() const), you are promising that this method will not change the state of the object. This method becomes a read-only method for the object’s state.
 //Thread Safety: In multi-threaded applications, const methods are inherently thread-safe when it comes to accessing shared data because they don't modify the shared state. Multiple threads can read from the same object without causing race conditions.
 #endif // CONTACT_H

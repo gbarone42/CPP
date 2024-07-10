@@ -1,5 +1,7 @@
 #include "Zombie.h"
 //Zombie*: The return type of the function, indicating that it returns a pointer to a Zombie object.
+
+//Dynamically creates a zombie and returns a pointer to it. This function showcases how to properly allocate and deallocate memory using new and delete.
 Zombie* newZombie(std::string name) {
     return new Zombie(name);
 }

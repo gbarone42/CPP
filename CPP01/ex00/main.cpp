@@ -10,3 +10,6 @@ int main()
     randomChump("StackZombie");
     return 0;
 }
+//creating a Zombie class along with functions to manage instances of this class 
+//both dynamically (using the heap)
+//and automatically (using the stack).

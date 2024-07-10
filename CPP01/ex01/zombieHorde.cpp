@@ -1,9 +1,14 @@
 #include "Zombie.h"
+#include <sstream> // Include the stringstream header
 
-Zombie* zombieHorde(int N, std::string name) {
+Zombie* zombieHorde(int N, std::string name)
+{
     Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; ++i) {
-        horde[i].setName(name + " #" + std::to_string(i + 1));
+    for (int i = 0; i < N; ++i)
+    {
+        std::stringstream ss; // Create a stringstream object
+        ss << name << " #" << (i + 1); // Use the stream insertion operator to append data
+        horde[i].setName(ss.str()); // Convert the stringstream to a string and set it
     }
     return horde;
 }

@@ -44,12 +44,12 @@ public:
             std::cout << "Invalid index." << std::endl;
             return;
         }
-        const Contact &contact = contacts[index];// const serve a assicurare che i dati acquisiti dall'oggetto ottenuto per referenza non vengano modificati, visto che sono stati acceduti
-        std::cout << "First Name: " << contact.getFirstName() << std::endl;
-        std::cout << "Last Name: " << contact.getLastName() << std::endl;
-        std::cout << "Nickname: " << contact.getNickname() << std::endl;
-        std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
-        std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+        // Contact contact = contacts[index];// const serve a assicurare che i dati acquisiti dall'oggetto ottenuto per referenza non vengano modificati, visto che sono stati acceduti
+        std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
+        std::cout << "Last Name: " << contacts[index].getLastName() << std::endl;
+        std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
+        std::cout << "Phone Number: " << contacts[index].getPhoneNumber() << std::endl;
+        std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
     }
 
 private:

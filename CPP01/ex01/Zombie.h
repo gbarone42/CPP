@@ -15,6 +15,7 @@ public:
 };
 
 // Declare the zombieHorde function
+// helper method
 Zombie* zombieHorde(int N, std::string name);
 
 #endif

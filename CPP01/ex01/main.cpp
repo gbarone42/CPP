@@ -1,9 +1,13 @@
 #include "Zombie.h"
 #include <iostream>
+// involves creating and managing multiple instances of a class—often referred to as a "horde" of objects.
+// This exercise is a practical implementation of dynamic memory allocation and array handling in C++. 
 
+// generate multiple Zombie objects at once,
+// initializing each with the same name and storing them in a dynamically allocated array
 int main()
 {
-    int N = 10; // Number of zombies
+    int N = 20; // Number of zombies
     std::string baseName = "Zombie";
 
     Zombie* horde = zombieHorde(N, baseName);
@@ -17,3 +21,9 @@ int main()
 
     return 0;
 }
+
+
+//LIFO Order (Last In, First Out): In C++, objects stored in a dynamically allocated array are destroyed in reverse order of their creation when the array is deleted.
+//This is because the destructor for the array needs to ensure that each object's destructor is called, starting from the last element to prevent potential issues like dependency-related errors or memory corruption.
+
+

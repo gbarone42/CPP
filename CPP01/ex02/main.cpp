@@ -2,7 +2,8 @@
 #include <string>
 //manipulating and understanding references and pointers
 //The goal is to write a program that uses a string variable and two ways to refer to it: a pointer and a reference. 
-int main() {
+int main()
+{
     std::string brain = "HI THIS IS BRAIN"; //string variable //brain is directly initialized as a string
     std::string* stringPTR = &brain; // pointer to the string //pointer that stores the address of brain string
     std::string& stringREF = brain; //reference to the string 

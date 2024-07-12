@@ -2,7 +2,8 @@
 #include "HumanA.h"
 #include "HumanB.h"
 
-int main() {
+int main()
+{//focuses on demonstrating practical use cases of classes and relationships between them, emphasizing object interactions
     {
         Weapon club = Weapon("crude spiked club");
         HumanA bob("Bob", club);

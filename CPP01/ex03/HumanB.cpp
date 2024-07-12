@@ -1,10 +1,10 @@
 #include "HumanB.h"
 
 // Constructor with weapon initialized to 0 (null pointer in C++98)
-HumanB::HumanB(const std::string& name) : name(name), weapon(0) {}
+HumanB::HumanB(const std::string& name) : name(name), weapon(0) {} //initialize humanB without a weapon
 
 void HumanB::setWeapon(Weapon& weapon) {
-    this->weapon = &weapon;  // Point to the existing weapon
+    this->weapon = &weapon;  //set the weapon // Point to the existing weapon
 }
 
 void HumanB::attack() const {

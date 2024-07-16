@@ -4,16 +4,16 @@
 
 int main()
 {
-    Weapon club("crude spiked club");
+    Weapon Rifle("AK 47");
     
-    HumanA bob("Bob", club);
+    HumanA bob("Bob", Rifle);
     bob.attack();
-    club.setType("some other type of club");
+    Rifle.setType("Akimbo Pistols");
     bob.attack();
     
     HumanB jim("Jim");
-    jim.attack();  // Jim has no weapon initially
-    jim.setWeapon(club);
+    jim.attack(); // Jim has no weapon initially
+    jim.setWeapon(Rifle);
     jim.attack();
     
     return 0;

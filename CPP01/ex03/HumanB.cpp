@@ -7,10 +7,14 @@ void HumanB::setWeapon(Weapon& weapon) //allowing setting a weapon at any time
     this->weapon = &weapon;
 }
 
-void HumanB::attack() const {
-    if (weapon) {
+void HumanB::attack() const
+{
+    if (weapon)
+    {
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << "No weapon to attack with!" << std::endl;
     }
 }

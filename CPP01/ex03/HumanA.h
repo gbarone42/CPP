@@ -5,7 +5,8 @@
 #include <string>
 #include <iostream>
 //humanA always has a weapon
-class HumanA {
+class HumanA
+{
 private:
     std::string name;
     Weapon& weapon;//reference to a weapon

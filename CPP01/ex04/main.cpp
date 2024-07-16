@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
+//#include <sstream>
 
 void replaceInFile(const std::string& filename, const std::string& s1, const std::string& s2)
 {
-    std::ifstream inputFile(filename.c_str()); // Convert std::string to const char*
+    std::ifstream inputFile(filename.c_str()); // Convert std::string to const char* //Converts std::string to a C-style string (const char*), which is required by the ifstream constructor
     if (!inputFile.is_open())
     {
         std::cerr << "Error: Unable to open file " << filename << std::endl;

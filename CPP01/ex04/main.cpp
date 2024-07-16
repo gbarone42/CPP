@@ -3,23 +3,28 @@
 #include <string>
 #include <sstream>
 
-void replaceInFile(const std::string& filename, const std::string& s1, const std::string& s2) {
+void replaceInFile(const std::string& filename, const std::string& s1, const std::string& s2)
+{
     std::ifstream inputFile(filename.c_str()); // Convert std::string to const char*
-    if (!inputFile.is_open()) {
+    if (!inputFile.is_open())
+    {
         std::cerr << "Error: Unable to open file " << filename << std::endl;
         return;
     }
 
     std::ofstream outputFile((filename + ".replace").c_str()); // Convert std::string to const char*
-    if (!outputFile.is_open()) {
+    if (!outputFile.is_open())
+    {
         std::cerr << "Error: Unable to create output file " << filename << ".replace" << std::endl;
         return;
     }
 
     std::string line;
-    while (std::getline(inputFile, line)) {
+    while (std::getline(inputFile, line))
+    {
         std::string::size_type pos = 0;
-        while ((pos = line.find(s1, pos)) != std::string::npos) {
+        while ((pos = line.find(s1, pos)) != std::string::npos)
+        {
             line.replace(pos, s1.length(), s2);
             pos += s2.length();
         }
@@ -30,7 +35,8 @@ void replaceInFile(const std::string& filename, const std::string& s1, const std
     outputFile.close();
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
     if (argc != 4) {
         std::cerr << "Usage: " << argv[0] << " <filename> <string1> <string2>" << std::endl;
         return 1;

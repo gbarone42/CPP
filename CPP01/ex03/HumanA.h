@@ -5,14 +5,14 @@
 #include <string>
 #include <iostream>
 
-//HumanA has a weapon as a reference, ensuring that it always possesses a weapon.class HumanA {
+class HumanA {
 private:
     std::string name;
-    Weapon& weapon;// Reference to Weapon, ensuring HumanA always has a weapon
+    Weapon& weapon;
 
 public:
     HumanA(const std::string& name, Weapon& weapon);
     void attack() const;
 };
 
-#endif
+#endif // HUMANA_H

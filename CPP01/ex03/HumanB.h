@@ -8,7 +8,7 @@
 class HumanB {
 private:
     std::string name;
-    Weapon* weapon;// Pointer to Weapon, allowing HumanB to have no weapon initiall
+    Weapon* weapon;
 
 public:
     HumanB(const std::string& name);
@@ -16,4 +16,4 @@ public:
     void attack() const;
 };
 
-#endif
+#endif // HUMANB_H

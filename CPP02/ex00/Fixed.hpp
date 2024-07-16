@@ -4,8 +4,8 @@
 
 class Fixed {
 private:
-    int fixed_point_value;
-    static const int fractional_bits = 8;
+    int fixed_point_value;//stores the fixed point number
+    static const int fractional_bits = 8;//static means it is shared across all instances.
 
 public:
     Fixed(); // Default constructor

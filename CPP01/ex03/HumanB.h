@@ -4,11 +4,11 @@
 #include "Weapon.h"
 #include <string>
 #include <iostream>
-
+//humanB can optionally have a weapon and it can be set at any time
 class HumanB {
 private:
     std::string name;
-    Weapon* weapon;
+    Weapon* weapon;//pointer to a weapon,
 
 public:
     HumanB(const std::string& name);

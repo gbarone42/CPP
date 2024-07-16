@@ -2,7 +2,8 @@
 #include "HumanA.h"
 #include "HumanB.h"
 
-int main() {
+int main()
+{
     Weapon club("crude spiked club");
     
     HumanA bob("Bob", club);

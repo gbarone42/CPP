@@ -1,8 +1,9 @@
 #include "HumanB.h"
 
-HumanB::HumanB(const std::string& name) : name(name), weapon(NULL) {}
+HumanB::HumanB(const std::string& name) : name(name), weapon(NULL) {} //constructor initialize humanB without a weapon at the beginning
 
-void HumanB::setWeapon(Weapon& weapon) {
+void HumanB::setWeapon(Weapon& weapon) //allowing setting a weapon at any time
+{
     this->weapon = &weapon;
 }
 

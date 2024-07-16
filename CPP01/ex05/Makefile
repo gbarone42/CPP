@@ -8,12 +8,12 @@ OBJ = $(SRC:.cpp=.o)
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-    $(CXX) $(OBJ) -o $(EXEC)
+	$(CXX) $(OBJ) -o $(EXEC)
 
 %.o: %.cpp
-    $(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-    rm -f $(OBJ) $(EXEC)
+	rm -f $(OBJ) $(EXEC)
 
 .PHONY: all clean

@@ -9,13 +9,13 @@ int main()
     std::string& stringREF = brain; //reference to the string 
 
 
-    std::cout << "Address of the string variable: " << &brain << std::endl;
-    std::cout << "Address held by stringPTR: " << stringPTR << std::endl; // it directly contains the address of brain, so printing stringPTR directly gives the address
-    std::cout << "Address held by stringREF: " << &stringREF << std::endl;
+    std::cout << "Address of the string variable: " << &brain << std::endl; //shows where the 'brain' string is stored in memory
+    std::cout << "Address held by stringPTR: " << stringPTR << std::endl; // it directly contains the address of brain, so printing stringPTR directly gives the address // already points at &brain
+    std::cout << "Address held by stringREF: " << &stringREF << std::endl; //Also shows the same address, illustrating that a reference is essentially another name for the same memory location.
 
-    std::cout << "Value of the string variable: " << brain << std::endl;
-    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
+    std::cout << "Value of the string variable: " << brain << std::endl;//direct access
+    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;//Accesses the value at the address stored in the pointer.
+    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;//direct access
 
     return 0;
 }

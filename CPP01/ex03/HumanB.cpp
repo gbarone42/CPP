@@ -1,6 +1,6 @@
 #include "HumanB.h"
 
-HumanB::HumanB(const std::string& name) : name(name), weapon(nullptr) {}
+HumanB::HumanB(const std::string& name) : name(name), weapon(NULL) {}
 
 void HumanB::setWeapon(Weapon& weapon) {
     this->weapon = &weapon;

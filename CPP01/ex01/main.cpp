@@ -7,7 +7,7 @@
 // initializing each with the same name and storing them in a dynamically allocated array
 int main()
 {
-    int N = 20; // Number of zombies
+    int N = 42; // Number of zombies
     std::string baseName = "Zombie";
 
     Zombie* horde = zombieHorde(N, baseName);

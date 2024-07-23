@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "iosfwd": "cpp",
+        "string": "cpp",
+        "new": "cpp"
     }
 }

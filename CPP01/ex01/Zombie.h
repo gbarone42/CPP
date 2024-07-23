@@ -8,10 +8,20 @@ private:
     std::string name;
 
 public:
-    Zombie(std::string name = "");  // Constructor with default parameter
-    ~Zombie();                 // Destructor
-    void announce() const;     // Announce method
-    void setName(std::string name); // Setter for name
+    // Default constructor
+    Zombie();    
+
+    // Constructor with default parameter
+    Zombie(std::string name);  
+
+    // Destructor
+    ~Zombie();                 
+
+    // Method to announce the zombie
+    void announce() const;     
+
+    // Setter for the name
+    void setName(std::string name); 
 };
 
 // Declare the zombieHorde function

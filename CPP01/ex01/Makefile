@@ -24,12 +24,16 @@ $(EXEC): $(OBJECTS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean the build
+# Clean the build (removes object files)
 clean:
-	rm -f $(OBJECTS) $(EXEC)
+	rm -f $(OBJECTS)
 
-# Rebuild the project
-re: clean all
+# Full clean (removes object files and executable)
+fclean: clean
+	rm -f $(EXEC)
+
+# Rebuild the project (full clean followed by all)
+re: fclean all
 
 # Prevent conflicts with files of the same name and make's special built-in targets
-.PHONY: all clean re
+.PHONY: all clean fclean re

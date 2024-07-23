@@ -1,6 +1,9 @@
 #include "Zombie.h"
 #include <iostream>
 
+
+// Default constructor
+Zombie::Zombie() : name("") {}// Initialization list sets the name to an empty string
 Zombie::Zombie(std::string n) : name(n) {}
 
 Zombie::~Zombie()

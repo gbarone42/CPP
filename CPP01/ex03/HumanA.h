@@ -9,7 +9,7 @@ class HumanA
 {
 private:
     std::string name;
-    Weapon& weapon;//reference to a weapon
+    Weapon& weapon;//reference to a weapon // must have a weapon
 
 public:
     HumanA(const std::string& name, Weapon& weapon);

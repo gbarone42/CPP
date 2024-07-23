@@ -4,17 +4,18 @@ LDFLAGS =
 
 SRC_DIR = src
 OBJ_DIR = build
-SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
-OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
+
+SRC_FILE = main.cpp
+OBJ_FILE = $(OBJ_DIR)/main.o
 
 EXEC = phonebook
 
 all: $(EXEC)
 
-$(EXEC): $(OBJ_FILES)
+$(EXEC): $(OBJ_FILE)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+$(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp
 	@mkdir -p $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 

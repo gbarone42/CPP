@@ -3,12 +3,12 @@
 
 Zombie* zombieHorde(int N, std::string name)
 {
-    Zombie* horde = new Zombie[N];//allocates space for N Zombie objects.
+    Zombie* horde = new Zombie[N];//allocation for N Zombie objects
     for (int i = 0; i < N; ++i)
     {
-        std::stringstream ss; // Create a stringstream object
-        ss << name << " #" << (i + 1); // Use the stream insertion operator to append data
-        horde[i].setName(ss.str()); // Convert the stringstream to a string and set it
+        std::stringstream ss;
+        ss << name << " #" << (i + 1); // << operator to append data
+        horde[i].setName(ss.str()); // convert the stringstream to a string and set it
     }
     return horde;
 }

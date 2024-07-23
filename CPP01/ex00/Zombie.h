@@ -14,7 +14,7 @@ public:
 };
 
 // Function declarations
-Zombie* newZombie(std::string name);   // Creates a new zombie on the heap
-void randomChump(std::string name);    // Creates a zombie on the stack and makes it announce
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

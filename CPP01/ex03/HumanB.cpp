@@ -1,6 +1,6 @@
 #include "HumanB.h"
 
-HumanB::HumanB(const std::string& name) : name(name), weapon(NULL) {} //constructor initialize humanB without a weapon at the beginning //indicating that it does not point to any object initially
+HumanB::HumanB(const std::string& name) : name(name), weapon(NULL) {} // //indicating that it does not point to any object initially
 
 void HumanB::setWeapon(Weapon& weapon) //allowing setting a weapon at any time
 {

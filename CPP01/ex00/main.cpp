@@ -1,4 +1,18 @@
 #include "Zombie.h"
+
+
+int main()
+{
+    //dynamic allocation (heap)
+    Zombie* heapZombie = newZombie("HeapZombie");
+    heapZombie->announce();
+    delete heapZombie; //free
+    //automatic allocation (stack)
+    randomChump("StackZombie");
+    return 0;
+}
+
+/*
 // create a simple Zombie class with functions for dynamically and automatically creating Zombie instances
 int main()
 {
@@ -24,3 +38,4 @@ int main()
 
 // AUTOMATIC
 // Does not return a pointer or the object
+*/

@@ -4,10 +4,10 @@
 
 int main()
 {
-    Fixed a;
-    Fixed b(a);
-    Fixed c;
-    c = b;
+    Fixed a;// HERE THE DEFAULT CONSTRUCTOR
+    Fixed b(a);// here the copy constructor is used
+    Fixed c;// DEF
+    c = b;// ASS
 
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;

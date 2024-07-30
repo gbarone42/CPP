@@ -22,7 +22,10 @@ public:
     float toFloat() const; // Convert to float
     int toInt() const; // Convert to integer
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+    //friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 };
+// Non-member function for stream insertion
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+
 
 #endif // FIXED_HPP

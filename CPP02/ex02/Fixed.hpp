@@ -43,7 +43,9 @@ public:
     Fixed& operator--(); // Prefix decrement
     Fixed operator--(int); // Postfix decrement
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+   // friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 };
+// Non-member function for stream insertion
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif // FIXED_HPP

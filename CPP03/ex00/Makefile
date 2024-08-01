@@ -20,16 +20,20 @@ main.o: main.cpp ClapTrap.hpp
 ClapTrap.o: ClapTrap.cpp ClapTrap.hpp
 	$(CXX) $(CXXFLAGS) -c ClapTrap.cpp
 
-# Clean the build (removes object files and executable)
+# Clean the build (removes object files)
 clean:
-	rm -f *.o $(TARGET)
+	rm -f *.o
 
-# Full rebuild (clean and then build)
-re: clean all
+# Full clean (removes object files and executable)
+fclean: clean
+	rm -f $(TARGET)
+
+# Rebuild the project (full clean followed by all)
+re: fclean all
 
 # Run the executable
 exec: $(TARGET)
 	./$(TARGET)
 
 # Declare phony targets to avoid conflicts with file names
-.PHONY: all clean re exec
+.PHONY: all clean fclean re exec

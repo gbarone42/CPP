@@ -8,8 +8,19 @@ ClapTrap::ClapTrap(std::string name)
     std::cout << "ClapTrap " << name << " created." << std::endl;
 }
 
+
+//constructor test
+/*
+ClapTrap::ClapTrap(std::string name)
+    : name(name), hitPoints(0), energyPoints(0), attackDamage(1000) //set initial value
+{
+    std::cout << "ClapTrap " << name << " created." << std::endl;
+}
+*/
+
 //destructor 
-ClapTrap::~ClapTrap() {
+ClapTrap::~ClapTrap()
+{
     std::cout << "ClapTrap " << name << " destroyed." << std::endl;
 }
 
@@ -54,7 +65,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     else
     {
-        std::cout << "ClapTrap " << name << " has no energy or hit points left to be repaired!" << std::endl;
+        std::cout << "ClapTrap " << name << " has no energy or hit points left to be repaired!" << std::endl;//ClapTrap can’t do anything if it has no hit points or energy points left
     }
 }
 

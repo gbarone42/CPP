@@ -14,7 +14,6 @@ public:
 
 #endif // SCAVTRAP_HPP
 
-
 //ScavTrap inherits the protected members name, hitPoints, energyPoints, and attackDamage from ClapTrap.
 //The public methods attack, takeDamage, beRepaired, and getter functions are inherited and accessible in ScavTrap
 //ScavTrap overrides the attack method to provide a specific implementation while still utilizing the inherited properties

@@ -6,10 +6,10 @@
 
 class ClapTrap {
 private:
-    std::string name;
-    int hitPoints;//represents the health
-    int energyPoints;// attacking and repairing cost one energyPoint each
-    int attackDamage;
+    std::string name;// passed to the constructor as a paramenter
+    int hitPoints;//represents the health //
+    int energyPoints;// attacking and repairing cost one energyPoint each //If energyPoints are 0, the ClapTrap cannot attack or repair itself, even if it has hit points remaining.
+    int attackDamage; // This represents the amount of damage the ClapTrap can inflict on a target during an attack // This value determines how effective the ClapTrap is in combat situations
 
 public:
     ClapTrap(std::string name);

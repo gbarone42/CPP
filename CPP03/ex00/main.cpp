@@ -8,7 +8,7 @@ int main()
     ct1.takeDamage(3);
     ct1.beRepaired(5);
     ct1.attack("target2");
-    ct1.takeDamage(20);
+    ct1.takeDamage(20000);//kill
     ct1.beRepaired(1);
 
     return 0;

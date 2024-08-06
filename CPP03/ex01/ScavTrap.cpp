@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) // The ClapTrap constructor is called first because ScavTrap inherits from ClapTrap.
 {
     hitPoints = 100;
     energyPoints = 50;
@@ -8,7 +8,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     std::cout << "ScavTrap " << name << " created." << std::endl;
 }
 
-ScavTrap::~ScavTrap() {
+ScavTrap::~ScavTrap()
+{
     std::cout << "ScavTrap " << name << " destroyed." << std::endl;
 }
 

@@ -18,7 +18,7 @@ int main()
     meta->makeSound();
 
     delete meta;
-    delete j;
+    delete j;// without a virtual destructor only the animal destructor would be called, potentially leading to resource leaks in the Dog class.
     delete i;
 
     std::cout << "\n ---///--- Wrong Animal Section ---///--- \n" << std::endl;
@@ -35,3 +35,9 @@ int main()
 
     return 0;
 }
+
+
+//Polymorphism: This allows treating objects of different types (i.e., Animal, Dog, Cat) as objects of a common base type (Animal).
+//The correct function implementation is determined at runtime, enabling flexible and reusable code.
+//Polymorphism is a core concept in OOP that allows objects of different types to be treated as objects of a common base type.
+//It enables the same operation to behave differently on different classes.

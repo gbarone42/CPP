@@ -2,7 +2,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
-
+////derived class
 class Dog : public Animal {
 public:
     Dog();

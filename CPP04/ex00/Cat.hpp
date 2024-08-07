@@ -3,6 +3,7 @@
 
 #include "Animal.hpp"
 
+//derived class
 class Cat : public Animal {
 public:
     Cat();

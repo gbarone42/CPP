@@ -3,6 +3,7 @@
         "iomanip": "cpp",
         "iosfwd": "cpp",
         "string": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "iostream": "cpp"
     }
 }

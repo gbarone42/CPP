@@ -1,4 +1,3 @@
-
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
@@ -15,12 +14,11 @@ public:
     Animal& operator=(const Animal& other); // Copy Assignment Operator
     virtual ~Animal(); // Destructor
 
-    virtual void makeSound() const; // Virtual function
+    virtual void makeSound() const; // Virtual function with default implementation
     std::string getType() const;
 };
 
 #endif // ANIMAL_HPP
-
 
 /*
 #ifndef ANIMAL_HPP

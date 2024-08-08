@@ -2,8 +2,7 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
-#include <iostream>
-#include <string>
+
 class Cat : public Animal {
 public:
     Cat(); // Default Constructor
@@ -15,7 +14,6 @@ public:
 };
 
 #endif // CAT_HPP
-
 
 
 /*#ifndef CAT_HPP

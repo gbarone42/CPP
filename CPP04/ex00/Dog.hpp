@@ -2,8 +2,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
-#include <iostream>
-#include <string>
+
 class Dog : public Animal {
 public:
     Dog(); // Default Constructor
@@ -15,7 +14,6 @@ public:
 };
 
 #endif // DOG_HPP
-
 
 /*
 #ifndef DOG_HPP

@@ -9,9 +9,12 @@ protected:
     std::string type;
 
 public:
-    Animal();
-    virtual ~Animal();
-    virtual void makeSound() const;
+    Animal(); // Default Constructor
+    Animal(const Animal& other); // Copy Constructor
+    Animal& operator=(const Animal& other); // Copy Assignment Operator
+    virtual ~Animal(); // Destructor
+
+    virtual void makeSound() const; // Virtual function
     std::string getType() const;
 };
 

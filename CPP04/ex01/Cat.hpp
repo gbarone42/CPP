@@ -9,11 +9,13 @@ private:
     Brain* brain;
 
 public:
-    Cat();
-    Cat(const Cat& other);
-    Cat& operator=(const Cat& other);
-    ~Cat();
-    void makeSound() const;
+    Cat(); // Default Constructor
+    Cat(const Cat& other); // Copy Constructor
+    Cat& operator=(const Cat& other); // Copy Assignment Operator
+    ~Cat(); // Destructor
+
+    void makeSound() const; // Override function
+    Brain* getBrain() const;
 };
 
 #endif // CAT_HPP

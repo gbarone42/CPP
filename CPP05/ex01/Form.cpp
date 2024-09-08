@@ -3,10 +3,14 @@
 
 // Constructor
 Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
-    : name(name), signedStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
-    if (gradeToSign < 1 || gradeToExecute < 1) {
+    : name(name), signedStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+    {
+    if (gradeToSign < 1 || gradeToExecute < 1)
+    {
         throw GradeTooHighException();
-    } else if (gradeToSign > 150 || gradeToExecute > 150) {
+    }
+    else if (gradeToSign > 150 || gradeToExecute > 150)
+    {
         throw GradeTooLowException();
     }
 }

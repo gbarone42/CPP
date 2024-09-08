@@ -3,8 +3,9 @@
 #include "Form.hpp"
 
 int main() {
-    try {
-        Bureaucrat b1("Alice", 2);
+    try
+    {
+        Bureaucrat b1("Alice", 136);
         Form f1("Form A", 3, 5);
 
         std::cout << f1 << std::endl;
@@ -13,12 +14,15 @@ int main() {
 
         std::cout << f1 << std::endl;
 
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 
-    try {
-        Bureaucrat b2("Bob", 150);
+    try
+    {
+        Bureaucrat b2("Bob", 3);
         Form f2("Form B", 50, 75);
 
         std::cout << f2 << std::endl;
@@ -27,7 +31,9 @@ int main() {
 
         std::cout << f2 << std::endl;
 
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 

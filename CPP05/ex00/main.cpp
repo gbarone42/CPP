@@ -7,36 +7,33 @@ int main()
     {
         Bureaucrat b1("Alice", 1);
         std::cout << b1 << std::endl;
-        b1.incrementGrade();  // This should throw an exception
+        b1.incrementGrade();  //
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
     try
     {
         Bureaucrat b2("Bob", 150);
         std::cout << b2 << std::endl;
-        b2.decrementGrade();  // This should throw an exception
+        b2.decrementGrade();  //
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
     try
     {
-        Bureaucrat b3("Charlie", 151);  // This should throw an exception
+        Bureaucrat b3("Charlie", 151);  //
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
     try
     {
-        Bureaucrat b4("Dave", 0);  // This should throw an exception
+        Bureaucrat b4("Dave", 0);  // 
     }
     catch (std::exception &e)
     {
@@ -47,20 +44,19 @@ int main()
     {
         Bureaucrat b5("Simone", 2);
         std::cout << b5 << std::endl;
-        b5.incrementGrade();  // This should throw an exception
-        std::cout << "After incrementing: " << b5 << std::endl;  // Print new value
+        b5.incrementGrade();  //
+        std::cout << "After incrementing: " << b5 << std::endl;  // Print new value 🔔
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
         try
     {
         Bureaucrat b6("Bruno", 100);
         std::cout << b6 << std::endl;
-        b6.decrementGrade();  // This should throw an exception
-        std::cout << "After decrementing: " << b6 << std::endl;  // Print new value of Bruno
+        b6.decrementGrade();  //
+        std::cout << "After decrementing: " << b6 << std::endl;  // Print new value of Bruno 🔔
     }
     catch (std::exception &e)
     {

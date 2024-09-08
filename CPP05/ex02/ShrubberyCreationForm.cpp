@@ -26,7 +26,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 
     // Convert std::string to const char* using .c_str()
     std::ofstream ofs((target + "_shrubbery").c_str());
-    if (!ofs) {
+    if (!ofs)
+    {
         std::cerr << "Error opening file" << std::endl;
         return;
     }

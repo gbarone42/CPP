@@ -1,22 +1,57 @@
-// main.cpp
-#include "Bureaucrat.hpp"
 #include "Intern.hpp"
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
-    Intern someRandomIntern;
-    AForm* rrf;
-
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    if (rrf) {
-        Bureaucrat bob("Bob", 50);
-        bob.signForm(*rrf);
-        bob.executeForm(*rrf);
-        delete rrf;
-    }
-
     try {
-        AForm* invalidForm = someRandomIntern.makeForm("invalid form", "Target");
-        delete invalidForm;
+        // Create an intern
+        Intern someRandomIntern;
+
+        // Test with valid forms
+        std::cout << "\n--- Testing valid form creation ---" << std::endl;
+        
+        AForm* shrubForm = someRandomIntern.makeForm("shrubbery creation", "home");
+        AForm* robotForm = someRandomIntern.makeForm("robotomy request", "Bender");
+        AForm* pardonForm = someRandomIntern.makeForm("presidential pardon", "Ford Prefect");
+
+        std::cout << *shrubForm << std::endl;
+        std::cout << *robotForm << std::endl;
+        std::cout << *pardonForm << std::endl;
+
+        // Create Bureaucrats
+        Bureaucrat bob("Bob", 50);
+        Bureaucrat alice("Alice", 1);
+
+        // Bob signs and executes ShrubberyCreationForm
+        std::cout << "\n--- Bob signs and executes ShrubberyCreationForm ---" << std::endl;
+        bob.signForm(*shrubForm);
+        bob.executeForm(*shrubForm);
+
+        // Alice signs and executes RobotomyRequestForm
+        std::cout << "\n--- Alice signs and executes RobotomyRequestForm ---" << std::endl;
+        alice.signForm(*robotForm);
+        alice.executeForm(*robotForm);
+
+        // Alice signs and executes PresidentialPardonForm
+        std::cout << "\n--- Alice signs and executes PresidentialPardonForm ---" << std::endl;
+        alice.signForm(*pardonForm);
+        alice.executeForm(*pardonForm);
+
+        // Test with an invalid form
+        std::cout << "\n--- Testing invalid form creation ---" << std::endl;
+        try {
+            AForm* invalidForm = someRandomIntern.makeForm("invalid form", "Target");
+            delete invalidForm;  // Won't be called because form creation fails
+        } catch (std::exception &e) {
+            std::cerr << e.what() << std::endl;  // Should print: "Form not found!"
+        }
+
+        // Clean up memory
+        delete shrubForm;
+        delete robotForm;
+        delete pardonForm;
     } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
     }

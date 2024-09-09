@@ -33,7 +33,7 @@ private:
     const std::string name;
     int grade;
 };
-
+//
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b);
 
 #endif

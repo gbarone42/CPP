@@ -18,16 +18,17 @@ public:
 
     void incrementGrade();
     void decrementGrade();
-
+//nested class
     class GradeTooHighException : public std::exception {
     public:
         const char* what() const throw();
     };
-
+//nested class
     class GradeTooLowException : public std::exception {
     public:
         const char* what() const throw();
     };
+    //exceptions
 
 private:
     const std::string name;

@@ -7,7 +7,7 @@ int main()
     {
         Bureaucrat b1("Alice", 1);
         std::cout << b1 << std::endl;
-        b1.incrementGrade();  //
+        b1.incrementGrade();  //use throw to signal an exception if the grade is invalid
     }
     catch (std::exception &e)
     {
@@ -17,7 +17,7 @@ int main()
     {
         Bureaucrat b2("Bob", 150);
         std::cout << b2 << std::endl;
-        b2.decrementGrade();  //
+        b2.decrementGrade();  //use throw to signal an exception if the grade is invalid
     }
     catch (std::exception &e)
     {
@@ -39,7 +39,6 @@ int main()
     {
         std::cerr << e.what() << std::endl;
     }
-
         try
     {
         Bureaucrat b5("Simone", 2);

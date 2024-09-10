@@ -17,6 +17,9 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
 // Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade) {}
 
+
+
+
 // Assignment operator
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 {
@@ -28,7 +31,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 }
 
 // Destructor
-Bureaucrat::~Bureaucrat() {}
+//Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+    std::cout << "Bureaucrat " << name << " with grade " << grade << " is being destroyed." << std::endl;
+}
+
+
 
 // Getters
 std::string Bureaucrat::getName() const

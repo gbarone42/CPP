@@ -18,6 +18,13 @@ int main() {
     ShrubberyCreationForm shrub("home");
     RobotomyRequestForm robot("Bender");
     PresidentialPardonForm pardon("Ford Prefect");
+    
+    // Print the details of the forms at the beginning
+    std::cout << shrub << std::endl;
+    std::cout << robot << std::endl;
+    std::cout << pardon << std::endl;
+    std::cout << "\n------" << std::endl;
+    std::cout << "\n------" << std::endl;
 
     // Bob signs and executes Shrubbery Creation Form
     bob.signForm(shrub);

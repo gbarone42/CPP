@@ -5,9 +5,10 @@
 int main() {
     try
     {
-        Bureaucrat b1("Alice", 136);
+        Bureaucrat b1("Alice", 1);
         Form f1("Form A", 3, 5);
 
+        std::cout << b1 << std::endl;
         std::cout << f1 << std::endl;
 
         b1.signForm(f1);
@@ -22,9 +23,10 @@ int main() {
 
     try
     {
-        Bureaucrat b2("Bob", 3);
+        Bureaucrat b2("Bob", 80);
         Form f2("Form B", 50, 75);
 
+        std::cout << b2 << std::endl;
         std::cout << f2 << std::endl;
 
         b2.signForm(f2);

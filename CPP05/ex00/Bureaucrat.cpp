@@ -1,10 +1,10 @@
 // Bureaucrat.cpp
 #include "Bureaucrat.hpp"
 
-// Constructor
+// Constructor, a special function to initialize the object created ensuring the object starts in a valid condition
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
-    if (grade < 1)
+    if (grade < 1)// 1 is the greatest level as a bureaucrat
     {
         throw GradeTooHighException();
     }
@@ -56,7 +56,7 @@ void Bureaucrat::incrementGrade()
     {
         throw GradeTooHighException();
     }
-    grade--;
+    grade--;// increment level of bureaucrat actually means decrease/lower the number
 }
 
 void Bureaucrat::decrementGrade()
@@ -65,12 +65,13 @@ void Bureaucrat::decrementGrade()
     {
         throw GradeTooLowException();
     }
-    grade++;
+    grade++;//decrese level of bureaucrat actually means increse/higher the number
 }
 
 // Exception messages  🔔🔔🔔🔔🔔🔔
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
+    //throw 12;
     return "Grade too high!";
 }
 

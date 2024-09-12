@@ -5,8 +5,8 @@ int main()
 {
     try
     {
-        Bureaucrat b1("Alice", 1);
-        std::cout << b1 << std::endl;
+        Bureaucrat b1("Alice", 1);// instanciate object b1 based on bureaucrat class
+        std::cout << b1 << std::endl;//operator formats the Bureaucrat object into a string and sends it to the output stream
         b1.incrementGrade();  //use throw to signal an exception if the grade is invalid
     }
     catch (std::exception &e)

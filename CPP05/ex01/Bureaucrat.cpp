@@ -80,7 +80,8 @@ std::ostream& operator<<(std::ostream &out, const Bureaucrat &b)
 }
 
 
-void Bureaucrat::signForm(Form &form) const {
+void Bureaucrat::signForm(Form &form) const
+{
     try
     {
         form.beSigned(*this);

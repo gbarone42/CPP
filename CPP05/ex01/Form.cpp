@@ -48,8 +48,10 @@ int Form::getGradeToExecute() const {
 }
 
 // Sign the form
-void Form::beSigned(const Bureaucrat &b) {
-    if (b.getGrade() > gradeToSign) {
+void Form::beSigned(const Bureaucrat &b)
+{
+    if (b.getGrade() > gradeToSign)
+    {
         throw GradeTooLowException();
     }
     signedStatus = true;

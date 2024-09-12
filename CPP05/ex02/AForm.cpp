@@ -3,7 +3,8 @@
 
 // Constructor
 AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute)
-    : name(name), signedStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
+    : name(name), signedStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+{
     if (gradeToSign < 1 || gradeToExecute < 1) {
         throw GradeTooHighException();
     } else if (gradeToSign > 150 || gradeToExecute > 150) {
@@ -65,7 +66,8 @@ const char* AForm::FormNotSignedException::what() const throw() {
 }
 
 // Overload << operator
-std::ostream& operator<<(std::ostream &out, const AForm &f) {
+std::ostream& operator<<(std::ostream &out, const AForm &f)
+{
     out << "Form: " << f.getName() << ", signed: " << (f.isSigned() ? "Yes" : "No")
         << ", grade to sign: " << f.getGradeToSign() << ", grade to execute: " << f.getGradeToExecute();
     return out;

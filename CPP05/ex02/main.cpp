@@ -10,10 +10,10 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-    Bureaucrat bob("Bob", 50);
-    Bureaucrat alice("Alice", 1);
+    Bureaucrat bob("Bob", 144);
+    Bureaucrat alice("Alice", 6);
     Bureaucrat charlie("Charlie", 150); // Lowest grade
-    Bureaucrat dave("Dave", 145);       // Can sign ShrubberyCreationForm, but not execute it
+    Bureaucrat dave("Dave", 144);       // Can sign ShrubberyCreationForm, but not execute it
 
     ShrubberyCreationForm shrub("home");
     RobotomyRequestForm robot("Bender");

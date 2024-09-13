@@ -23,7 +23,61 @@ int main()
     {
         std::cerr << e.what() << std::endl;
     }
+        try
+    {
+        Bureaucrat b3("Vito", 149);
+        std::cout << b3 << std::endl;
+        b3.decrementGrade();  //use throw to signal an exception if the grade is invalid
+        std::cout << "After decrement, new grade: " << b3 << std::endl;
+        b3.incrementGrade();
+         std::cout << "After increment, new grade: " << b3 << std::endl;
+         b3.decrementGrade();  //use throw to signal an exception if the grade is invalid
+         std::cout << "After decrement, new grade: " << b3 << std::endl;
+         std::cout << "Testing another decrement"<< std::endl;
+         std::cout << "..it is gonna fail.."<< std::endl;
+         b3.decrementGrade();  //use throw to signal an exception if the grade is invalid
+          //std::cout << "After double decrement, Vito's new grade: " << b3 << std::endl;
+
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
     try
+    {
+        Bureaucrat b4("Baffo D'oro", 0);// instanciate object b1 based on bureaucrat class
+        std::cout << b4 << std::endl;//operator formats the Bureaucrat object into a string and sends it to the output stream
+        b4.incrementGrade();  //use throw to signal an exception if the grade is invalid
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        Bureaucrat b7("Mario", 75);
+        Bureaucrat b8("Luigi", 100);
+        std::cout << "Before assignment: " << std::endl;
+        std::cout << "b7: " << b7 << std::endl;
+        std::cout << "b8: " << b8 << std::endl;
+
+        b7.incrementGrade(); 
+        b8 = b7;  // Assignment operator - assigning b7 to b8
+        std::cout << "After assignment (b8 = b7): " << std::endl;
+        std::cout << "b8: " << b8 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+
+     return 0;
+
+}
+    /*try
     {
         Bureaucrat b3("Charlie", 151);  //
     }
@@ -61,6 +115,6 @@ int main()
     {
         std::cerr << e.what() << std::endl;
     }
-
-    return 0;
-}
+*/
+   // return 0;
+//}

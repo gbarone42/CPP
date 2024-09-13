@@ -33,9 +33,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 // Destructor
 //Bureaucrat::~Bureaucrat() {}
 Bureaucrat::~Bureaucrat() {
-    std::cout << "Bureaucrat " << name << " with grade " << grade << " is being destroyed." << std::endl;
+  //  std::cout << "Bureaucrat " << name << " with grade " << grade << " is being destroyed." << std::endl;
 }
-
 
 
 // Getters
@@ -56,7 +55,7 @@ void Bureaucrat::incrementGrade()
     {
         throw GradeTooHighException();
     }
-    grade--;// increment level of bureaucrat actually means decrease/lower the number
+    grade--;// sososo increment level of bureaucrat actually means decrease/lower the number
 }
 
 void Bureaucrat::decrementGrade()

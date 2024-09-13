@@ -46,8 +46,10 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target) 
     };
 
     // Iterate over form names and check if the formName matches
-    for (int i = 0; i < 3; ++i) {
-        if (formNames[i] == formName) {
+    for (int i = 0; i < 3; ++i)
+    {
+        if (formNames[i] == formName)
+        {
             std::cout << "Intern creates " << formName << std::endl;
             return formCreators[i](target);  // Call the corresponding function
         }

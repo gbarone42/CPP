@@ -21,7 +21,7 @@ int main() {
         std::cout << *pardonForm << std::endl;
 
         // Create Bureaucrats
-        Bureaucrat bob("Bob", 50);
+        Bureaucrat bob("Bob", 138);
         Bureaucrat alice("Alice", 1);
 
         // Bob signs and executes ShrubberyCreationForm

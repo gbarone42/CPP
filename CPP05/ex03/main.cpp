@@ -4,8 +4,10 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main() {
-    try {
+int main()
+{
+    try
+    {
         // Create an intern
         Intern someRandomIntern;
 
@@ -25,7 +27,7 @@ int main() {
         Bureaucrat alice("Alice", 1);
 
         // Bob signs and executes ShrubberyCreationForm
-        std::cout << "\n--- Bob signs and executes ShrubberyCreationForm ---" << std::endl;
+        //std::cout << "\n--- Bob signs and executes ShrubberyCreationForm ---" << std::endl;
         bob.signForm(*shrubForm);
         bob.executeForm(*shrubForm);
 
@@ -41,18 +43,23 @@ int main() {
 
         // Test with an invalid form
         std::cout << "\n--- Testing invalid form creation ---" << std::endl;
-        try {
+        try
+        {
             AForm* invalidForm = someRandomIntern.makeForm("invalid form", "Target");
-            delete invalidForm;  // Won't be called because form creation fails
-        } catch (std::exception &e) {
-            std::cerr << e.what() << std::endl;  // Should print: "Form not found!"
+            delete invalidForm;  // ma tanto non vera' chiamata
+        }
+        catch (std::exception &e)
+        {
+            std::cerr << e.what() << std::endl;  // printa"Form not found!"
         }
 
         // Clean up memory
         delete shrubForm;
         delete robotForm;
         delete pardonForm;
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 

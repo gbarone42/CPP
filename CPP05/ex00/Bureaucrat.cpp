@@ -37,7 +37,7 @@ Bureaucrat::~Bureaucrat() {
 }
 
 
-// Getters
+// Getters o accessors come lo chiama il correction sheet
 std::string Bureaucrat::getName() const
 {
     return name;
@@ -48,7 +48,7 @@ int Bureaucrat::getGrade() const
     return grade;
 }
 
-// Increment and Decrement
+// Increment che decrementa l'intero
 void Bureaucrat::incrementGrade()
 {
     if (grade <= 1)
@@ -57,7 +57,7 @@ void Bureaucrat::incrementGrade()
     }
     grade--;// sososo increment level of bureaucrat actually means decrease/lower the number
 }
-
+// and Decrement che incrementa l'intero
 void Bureaucrat::decrementGrade()
 {
     if (grade >= 150)

@@ -57,7 +57,7 @@ void Form::beSigned(const Bureaucrat &b)
     signedStatus = true;
 }
 
-// Exception messages
+// Exception messages// 'what' method is typically overridden in custom exceptions to return a meaningful explaination of the error, 'what' std::exception class
 const char* Form::GradeTooHighException::what() const throw() {
     return "Form grade too high!";
 }

@@ -11,7 +11,7 @@ public:
     AForm(const std::string &name, int gradeToSign, int gradeToExecute);
     AForm(const AForm &other);
     AForm& operator=(const AForm &other);
-    virtual ~AForm();
+    virtual ~AForm();//The execute() method in the base class (AForm) is pure virtual, meaning that the derived classes (ShrubberyCreationForm, RobotomyRequestForm, PresidentialPardonForm) are responsible for implementing the entire execute() logic.
 
     std::string getName() const;
     bool isSigned() const;

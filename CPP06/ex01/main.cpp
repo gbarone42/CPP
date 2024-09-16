@@ -1,7 +1,8 @@
 #include "Serializer.hpp"
 #include <iostream>
 
-int main() {
+int main()
+{
     Data originalData;
     originalData.number = 42;
     originalData.text = "Hello, Serialization!";
@@ -19,9 +20,12 @@ int main() {
     std::cout << "Text: " << deserializedData->text << std::endl;
 
     // Check if the original and deserialized pointers are equal
-    if (&originalData == deserializedData) {
+    if (&originalData == deserializedData)
+    {
         std::cout << "\nSuccess: The deserialized pointer matches the original!" << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << "\nError: The deserialized pointer does not match the original!" << std::endl;
     }
 

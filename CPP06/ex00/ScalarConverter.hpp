@@ -11,6 +11,14 @@ public:
 private:
     ScalarConverter();  // Private constructor to prevent instantiation
 
+   
+   /*
+    //non serve a un caz    // Orthodox Canonical Form methods - private to prevent copying/instantiating
+    ScalarConverter(const ScalarConverter&);            // Copy Constructor
+    ScalarConverter& operator=(const ScalarConverter&); // Copy Assignment Operator
+    ~ScalarConverter();                                 // Destructor
+    */
+
     static char convertToChar(double value);
     static int convertToInt(double value);
     static float convertToFloat(double value);

@@ -5,12 +5,34 @@
 #include <cmath>
 #include <limits>
 
+
+//INUTILE
+/*
+
+// Private constructor to prevent instantiation
+ScalarConverter::ScalarConverter() {}
+
+// Copy constructor (private and unimplemented to prevent copying)
+ScalarConverter::ScalarConverter(const ScalarConverter&) {}
+
+// Copy assignment operator (private and unimplemented to prevent assignment)
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter&) {
+    return *this;
+}
+
+// Destructor (private and empty)
+ScalarConverter::~ScalarConverter() {}
+
+*/
+
+//converting a string representation of a scalar value to different scalar types (char, int, float, double) etc etc
+
 void ScalarConverter::convert(const std::string& literal)
 {
-    // Replace nullptr with 0 for C++98 compatibility
-    double value = std::strtod(literal.c_str(), 0);
+    // 
+    double value = std::strtod(literal.c_str(), 0);// strtod converte una stringa in un double //c_str converte l'oggetto literal in una stringa c-style
 
-    // Handle special cases
+    // casi speciali
     if (literal == "nan" || literal == "nanf")
     {
         std::cout << "char: impossible" << std::endl;
@@ -39,7 +61,7 @@ void ScalarConverter::convert(const std::string& literal)
     // Convert and print
     std::cout << "char: ";
     char charResult = convertToChar(value);
-    if (std::isprint(charResult))
+    if (std::isprint(charResult))//checkka che sia printabile
         std::cout << "'" << charResult << "'" << std::endl;
     else if (charResult >= 0 && static_cast<unsigned char>(charResult) < 128) // Fixed comparison
         std::cout << "Non displayable" << std::endl;
@@ -48,7 +70,7 @@ void ScalarConverter::convert(const std::string& literal)
 
     std::cout << "int: ";
     int intResult = convertToInt(value);
-    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) //checkka che il numero non sia out of range
         std::cout << "impossible" << std::endl;
     else
         std::cout << intResult << std::endl;

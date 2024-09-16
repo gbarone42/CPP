@@ -3,11 +3,13 @@
 #include <iostream>
 
 // Randomly generates an instance of A, B, or C and returns it as a Base pointer
-Base* generate(void) {
+Base* generate(void)
+{
     srand(static_cast<unsigned int>(time(0)));
     int random = rand() % 3;
 
-    switch (random) {
+    switch (random)
+    {
         case 0: return new A();
         case 1: return new B();
         case 2: return new C();
@@ -16,7 +18,8 @@ Base* generate(void) {
 }
 
 // Identifies the type of the object pointed to by Base* p
-void identify(Base* p) {
+void identify(Base* p)
+{
     if (dynamic_cast<A*>(p))
         std::cout << "A" << std::endl;
     else if (dynamic_cast<B*>(p))
@@ -28,7 +31,8 @@ void identify(Base* p) {
 }
 
 // Identifies the type of the object referred to by Base& p
-void identify(Base& p) {
+void identify(Base& p)
+{
     // Use dynamic_cast to test the type and check if it returns non-null
     if (dynamic_cast<A*>(&p))
         std::cout << "A" << std::endl;

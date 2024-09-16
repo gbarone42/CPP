@@ -14,13 +14,10 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
     }
 }
 
-// Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade) {}
 
 
 
-
-// Assignment operator
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 {
     if (this != &other)

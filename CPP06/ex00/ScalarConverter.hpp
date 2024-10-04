@@ -19,6 +19,7 @@ private:
     ~ScalarConverter();                                 // Destructor
     */
 
+   //declared and implemented as static methods
     static char convertToChar(double value);
     static int convertToInt(double value);
     static float convertToFloat(double value);

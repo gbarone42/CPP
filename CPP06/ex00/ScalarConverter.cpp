@@ -5,22 +5,27 @@
 #include <cmath>
 #include <limits>
 
-// Static method to convert a string representation of a scalar value
-void ScalarConverter::convert(const std::string& literal) {
-    double value;
-    bool isFloatLiteral = false;
 
-    // Check if the literal ends with 'f', indicating a float literal
-    if (literal[literal.size() - 1] == 'f' && literal != "inf" && literal != "-inf" && literal != "+inf") {  // Replaced literal.back() with literal[literal.size() - 1]
-        std::string withoutF = literal.substr(0, literal.size() - 1);  // Remove 'f'
-        value = std::strtod(withoutF.c_str(), 0);  // Replaced nullptr with 0
+void ScalarConverter::convert(const std::string& literal) //static member function of the ScalarConverter class
+{
+    double value; // it is neeeded to store the numeric value after converting the string 'literal' to a double
+    bool isFloatLiteral = false;// a flag to indicate if the input string represent a float literal
+
+
+    if (literal[literal.size() - 1] == 'f' && literal != "inf" && literal != "-inf" && literal != "+inf")
+    {
+        std::string withoutF = literal.substr(0, literal.size() - 1);  // the f gets removed
+        value = std::strtod(withoutF.c_str(), 0);  //the string without the f is converted to a double
         isFloatLiteral = true;
-    } else {
-        value = std::strtod(literal.c_str(), 0);  // Replaced nullptr with 0
+    }
+    else
+    {
+        value = std::strtod(literal.c_str(), 0);  // even if the string literal is not a float literal it converts the string literal to a double
     }
 
-    // If the input is invalid (contains non-numeric characters), print impossible for all
-    if (literal.empty() || (!isFloatLiteral && *literal.c_str() != '0' && value == 0.0)) {
+    
+    if (literal.empty() || (!isFloatLiteral && *literal.c_str() != '0' && value == 0.0))//checks if it is empty //when isFloatLiteral is true the if statement will not trigger unless literal.empty() is true // This checks whether the first character of the string literal is not '0' //This checks if the value (the result of converting literal to double) is equal to 0.0.
+    {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;

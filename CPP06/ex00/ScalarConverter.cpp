@@ -5,39 +5,18 @@
 #include <cmath>
 #include <limits>
 
-
-//INUTILE
-/*
-
-// Private constructor to prevent instantiation
-ScalarConverter::ScalarConverter() {}
-
-// Copy constructor (private and unimplemented to prevent copying)
-ScalarConverter::ScalarConverter(const ScalarConverter&) {}
-
-// Copy assignment operator (private and unimplemented to prevent assignment)
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter&) {
-    return *this;
-}
-
-// Destructor (private and empty)
-ScalarConverter::~ScalarConverter() {}
-
-*/
-
-//converting a string representation of a scalar value to different scalar types (char, int, float, double) etc etc
-
+// Static method to convert a string representation of a scalar value
 void ScalarConverter::convert(const std::string& literal) {
     double value;
     bool isFloatLiteral = false;
 
     // Check if the literal ends with 'f', indicating a float literal
-    if (literal.back() == 'f' && literal != "inf" && literal != "-inf" && literal != "+inf") {
+    if (literal[literal.size() - 1] == 'f' && literal != "inf" && literal != "-inf" && literal != "+inf") {  // Replaced literal.back() with literal[literal.size() - 1]
         std::string withoutF = literal.substr(0, literal.size() - 1);  // Remove 'f'
-        value = std::strtod(withoutF.c_str(), nullptr);
+        value = std::strtod(withoutF.c_str(), 0);  // Replaced nullptr with 0
         isFloatLiteral = true;
     } else {
-        value = std::strtod(literal.c_str(), nullptr);
+        value = std::strtod(literal.c_str(), 0);  // Replaced nullptr with 0
     }
 
     // If the input is invalid (contains non-numeric characters), print impossible for all
@@ -49,7 +28,7 @@ void ScalarConverter::convert(const std::string& literal) {
         return;
     }
 
-    // Handle special cases
+    // Handle special cases: nan and inf
     if (literal == "nan" || literal == "nanf") {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -72,7 +51,7 @@ void ScalarConverter::convert(const std::string& literal) {
         return;
     }
 
-    // Convert and print
+    // Convert and print char
     std::cout << "char: ";
     char charResult = convertToChar(value);
     if (std::isprint(charResult)) {
@@ -83,6 +62,7 @@ void ScalarConverter::convert(const std::string& literal) {
         std::cout << "impossible" << std::endl;
     }
 
+    // Convert and print int
     std::cout << "int: ";
     int intResult = convertToInt(value);
     if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
@@ -91,49 +71,32 @@ void ScalarConverter::convert(const std::string& literal) {
         std::cout << intResult << std::endl;
     }
 
-    // For float and double, respect the isFloatLiteral flag to append the 'f' only for float literals
-    if (isFloatLiteral) {
-        std::cout << "float: " << std::fixed << std::setprecision(1) << convertToFloat(value) << "f" << std::endl;
-    } else {
-        std::cout << "float: " << std::fixed << std::setprecision(1) << convertToFloat(value) << "f" << std::endl;
-    }
+    // Convert and print float
+    std::cout << "float: " << std::fixed << std::setprecision(1) << convertToFloat(value) << (isFloatLiteral ? "f" : "f") << std::endl;
 
+    // Convert and print double
     std::cout << "double: " << convertToDouble(value) << std::endl;
 }
 
-
-
-
-//use of static_cast is required to explicitly convert values to the correct scalar types, except for promotion casts (e.g., from int to double).
-//When converting from one scalar type to another in C++ (like double to int, or float to char), you are required to use static_cast to explicitly perform the conversion.
-//This is important because narrowing conversions (conversions that reduce precision or range, like double to int) can result in loss of data (e.g., truncating decimal values). 
-//Using static_cast forces the programmer to explicitly acknowledge and perform the conversion, ensuring that such conversions aren't done unintentionally or accidentally.
-//A promotion cast occurs when you're converting from a smaller type to a larger type, where no precision or range is lost.
-//A promotion happens when you convert a smaller type (like int) into a larger type (like double), which expands the value without losing precision.
-
-//Narrowing Conversion (explicit): When converting from a larger type to a smaller type (e.g., double to int, float to char), use static_cast.
-//Promotion (implicit): When converting from a smaller type to a larger type (e.g., int to double), you can rely on implicit casting.
-
-//In C++, when you're promoting from a smaller type (e.g., int) to a larger type (e.g., double), the conversion is safe because the larger type can represent the full range of the smaller type without losing information.
-// For this reason, you do not need to use static_cast for such conversions, and they can happen implicit
-//Narrowing casts, such as converting from double to int, might result in loss of precision truncating decimal places or losing values outside the range of an int
-
-char ScalarConverter::convertToChar(double value)
-{
-    return static_cast<char>(value);
+// Conversion functions
+char ScalarConverter::convertToChar(double value) {
+    if (value < 0 || value > 255 || std::isnan(value) || std::isinf(value)) {
+        return -1;  // Indicating conversion is impossible
+    }
+    return static_cast<char>(static_cast<int>(value));
 }
 
-int ScalarConverter::convertToInt(double value)
-{
+int ScalarConverter::convertToInt(double value) {
+    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max() || std::isnan(value) || std::isinf(value)) {
+        return -1;  // Indicating conversion is impossible
+    }
     return static_cast<int>(value);
 }
 
-float ScalarConverter::convertToFloat(double value)
-{
+float ScalarConverter::convertToFloat(double value) {
     return static_cast<float>(value);
 }
 
-double ScalarConverter::convertToDouble(double value)
-{
+double ScalarConverter::convertToDouble(double value) {
     return value;
 }

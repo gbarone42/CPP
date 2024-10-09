@@ -34,21 +34,24 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
     }
 
     // Handle special cases: nan and inf
-    if (literal == "nan" || literal == "nanf") {
+    if (literal == "nan" || literal == "nanf")
+    {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
         return;
     }
-    if (literal == "+inf" || literal == "+inff" || literal == "inf" || literal == "inff") {
+    if (literal == "+inf" || literal == "+inff" || literal == "inf" || literal == "inff")
+    {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: +inff" << std::endl;
         std::cout << "double: +inf" << std::endl;
         return;
     }
-    if (literal == "-inf" || literal == "-inff") {
+    if (literal == "-inf" || literal == "-inff")
+    {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: -inff" << std::endl;
@@ -59,20 +62,28 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
     // Convert and print char
     std::cout << "char: ";
     char charResult = convertToChar(value);
-    if (std::isprint(charResult)) {
+    if (std::isprint(charResult))
+    {
         std::cout << "'" << charResult << "'" << std::endl;
-    } else if (charResult >= 0 && static_cast<unsigned char>(charResult) < 128) {
+    }
+    else if (charResult >= 0 && static_cast<unsigned char>(charResult) < 128)
+    {
         std::cout << "Non displayable" << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << "impossible" << std::endl;
     }
 
     // Convert and print int
     std::cout << "int: ";
     int intResult = convertToInt(value);
-    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
+    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+    {
         std::cout << "impossible" << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << intResult << std::endl;
     }
 
@@ -85,23 +96,27 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
 
 // Conversion functions
 char ScalarConverter::convertToChar(double value) {
-    if (value < 0 || value > 255 || std::isnan(value) || std::isinf(value)) {
+    if (value < 0 || value > 255 || std::isnan(value) || std::isinf(value))
+    {
         return -1;  // Indicating conversion is impossible
     }
     return static_cast<char>(static_cast<int>(value));
 }
 
 int ScalarConverter::convertToInt(double value) {
-    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max() || std::isnan(value) || std::isinf(value)) {
+    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max() || std::isnan(value) || std::isinf(value))
+    {
         return -1;  // Indicating conversion is impossible
     }
     return static_cast<int>(value);
 }
 
-float ScalarConverter::convertToFloat(double value) {
+float ScalarConverter::convertToFloat(double value)
+{
     return static_cast<float>(value);
 }
 
-double ScalarConverter::convertToDouble(double value) {
+double ScalarConverter::convertToDouble(double value)
+{
     return value;
 }

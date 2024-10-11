@@ -1,8 +1,10 @@
+
 #include "Serializer.hpp"
 #include <iostream>
 
 int main()
 {
+    // Original Data
     Data originalData;
     originalData.number = 42;
     originalData.text = "Hello, Serialization!";
@@ -11,8 +13,10 @@ int main()
     std::cout << "Number: " << originalData.number << std::endl;
     std::cout << "Text: " << originalData.text << std::endl;
 
-    // Use unsigned long instead of uintptr_t
-    unsigned long raw = Serializer::serialize(&originalData);
+    // Serialize: Convert Data* to uintptr_t //special unsigned integer type in C++ capable of holding pointer values
+    uintptr_t raw = Serializer::serialize(&originalData);
+
+    // Deserialize: Convert uintptr_t back to Data*
     Data* deserializedData = Serializer::deserialize(raw);
 
     std::cout << "\nDeserialized Data: " << std::endl;
@@ -31,3 +35,8 @@ int main()
 
     return 0;
 }
+
+
+
+//The goal is to convert the memory address of a Data structure (i.e., a pointer to Data) to an integer type
+//and then convert that integer back to a pointer.

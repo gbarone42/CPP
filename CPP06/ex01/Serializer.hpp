@@ -1,21 +1,28 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
-#include <string>  // Include this for std::string in C++98
-#include <iostream> // For I/O streams in C++98
+#include <string>
 
-struct Data {
+struct Data
+{
     int number;
     std::string text;
 };
 
-class Serializer {
+class Serializer
+{
 public:
-    static unsigned long serialize(Data* ptr);   // Use unsigned long instead of uintptr_t
-    static Data* deserialize(unsigned long raw); // Use unsigned long instead of uintptr_t
+    // Serialize: Convert Data* to uintptr_t
+    static uintptr_t serialize(Data* ptr);
+
+    // Deserialize: Convert uintptr_t back to Data*
+    static Data* deserialize(uintptr_t raw);
 
 private:
-    Serializer();  // Private constructor to prevent instantiation
+    // Private constructor to prevent instantiation
+    Serializer();
+    Serializer(const Serializer&);
+    Serializer& operator=(const Serializer&);
 };
 
 #endif

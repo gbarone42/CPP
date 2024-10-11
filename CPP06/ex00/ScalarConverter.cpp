@@ -23,9 +23,8 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         value = std::strtod(literal.c_str(), 0);  // even if the string literal is not a float literal it converts the string literal to a double
     }
 
-    
     if (literal.empty() || (!isFloatLiteral && *literal.c_str() != '0' && value == 0.0))//checks if it is empty //when isFloatLiteral is true the if statement will not trigger unless literal.empty() is true // This checks whether the first character of the string literal is not '0' //This checks if the value (the result of converting literal to double) is equal to 0.0.
-    {
+    {//So when isFloatLiteral is true, the if statement will not trigger unless literal.empty() is true.
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;
@@ -42,6 +41,7 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         std::cout << "double: nan" << std::endl;
         return;
     }
+
     if (literal == "+inf" || literal == "+inff" || literal == "inf" || literal == "inff")
     {
         std::cout << "char: impossible" << std::endl;
@@ -50,6 +50,7 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         std::cout << "double: +inf" << std::endl;
         return;
     }
+
     if (literal == "-inf" || literal == "-inff")
     {
         std::cout << "char: impossible" << std::endl;
@@ -62,11 +63,11 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
     // Convert and print char
     std::cout << "char: ";
     char charResult = convertToChar(value);
-    if (std::isprint(charResult))
+    if (std::isprint(charResult))//check if cherResult ASCII values between 32 and 126
     {
-        std::cout << "'" << charResult << "'" << std::endl;
+        std::cout << "'" << charResult << "'" << std::endl;// printed in ' ' 
     }
-    else if (charResult >= 0 && static_cast<unsigned char>(charResult) < 128)
+    else if (charResult >= 0 && static_cast<unsigned char>(charResult) < 128)//non displayable
     {
         std::cout << "Non displayable" << std::endl;
     }
@@ -78,7 +79,7 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
     // Convert and print int
     std::cout << "int: ";
     int intResult = convertToInt(value);
-    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+    if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())//smallest and larger possible integer
     {
         std::cout << "impossible" << std::endl;
     }
@@ -87,7 +88,7 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         std::cout << intResult << std::endl;
     }
 
-    // Convert and print float
+    // Convert and print float //"fixed-point" notation as opposed to "scientific" notation //
     std::cout << "float: " << std::fixed << std::setprecision(1) << convertToFloat(value) << (isFloatLiteral ? "f" : "f") << std::endl;
 
     // Convert and print double
@@ -95,7 +96,8 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
 }
 
 // Conversion functions
-char ScalarConverter::convertToChar(double value) {
+char ScalarConverter::convertToChar(double value)
+{
     if (value < 0 || value > 255 || std::isnan(value) || std::isinf(value))
     {
         return -1;  // Indicating conversion is impossible
@@ -103,7 +105,8 @@ char ScalarConverter::convertToChar(double value) {
     return static_cast<char>(static_cast<int>(value));
 }
 
-int ScalarConverter::convertToInt(double value) {
+int ScalarConverter::convertToInt(double value)
+{
     if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max() || std::isnan(value) || std::isinf(value))
     {
         return -1;  // Indicating conversion is impossible

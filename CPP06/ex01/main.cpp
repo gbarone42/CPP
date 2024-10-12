@@ -23,15 +23,21 @@ int main()
     std::cout << "Number: " << deserializedData->number << std::endl;
     std::cout << "Text: " << deserializedData->text << std::endl;
 
-    // Check if the original and deserialized pointers are equal
+    //se puntano allo stesso indirizzo
     if (&originalData == deserializedData)
     {
-        std::cout << "\nSuccess: The deserialized pointer matches the original!" << std::endl;
+        std::cout << "\nSuccess: addresses matches the original!" << std::endl;
     }
     else
     {
-        std::cout << "\nError: The deserialized pointer does not match the original!" << std::endl;
+        std::cout << "\n FAIL !" << std::endl;
     }
+
+    //check dell'indirizzo bufu
+    std::cout << "\n \nMemory Address of originalData: " << std::hex << &originalData << std::endl;
+    std::cout << "Memory Address of deserializedData: " << std::hex << deserializedData << std::endl;
+    std::cout << "\n \n wow " << std::endl;
+
 
     return 0;
 }
@@ -40,3 +46,6 @@ int main()
 
 //The goal is to convert the memory address of a Data structure (i.e., a pointer to Data) to an integer type
 //and then convert that integer back to a pointer.
+
+// Serialize (convert pointer to integer)
+// Deserialize (convert integer back to pointer)

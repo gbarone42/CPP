@@ -16,3 +16,9 @@ Data* Serializer::deserialize(uintptr_t raw)
 
 //A cast operator in C++ used to convert one pointer type to another, or a pointer to an integer and vice versa.
 //It allows you to cast between incompatible types like void* to int or int to void*
+
+
+
+//Memory Address	Field	Value
+//0x12345678	    number	 42
+//0x1234567C	    text	 "Hello, Serialization!" (string data)

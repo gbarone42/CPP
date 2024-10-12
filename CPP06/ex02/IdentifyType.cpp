@@ -44,11 +44,12 @@ void identify(Base* p)
 
 
 
-void identify(Base& p) {
+void identify(Base& p)
+{
     try
     {
-        // No need to store the result in a variable, just check the cast
-        (void)dynamic_cast<A&>(p);  // Cast and discard the result
+        //
+        (void)dynamic_cast<A&>(p); 
         std::cout << "A" << std::endl;
         return;
     } catch (std::bad_cast&)
@@ -57,7 +58,7 @@ void identify(Base& p) {
     }
     try
     {
-        (void)dynamic_cast<B&>(p);  // Cast and discard the result
+        (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
         return;
     } catch (std::bad_cast&)
@@ -67,7 +68,7 @@ void identify(Base& p) {
 
     try
     {
-        (void)dynamic_cast<C&>(p);  // Cast and discard the result
+        (void)dynamic_cast<C&>(p);  
         std::cout << "C" << std::endl;
         return;
     } catch (std::bad_cast&)

@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <iostream>
 
+//#include <ctime> nel mac non servivano
+//#include <exception>
+
 // Randomly generates an instance of A, B, or C and returns it as a Base pointer
 Base* generate(void)
 {
@@ -11,15 +14,14 @@ Base* generate(void)
     switch (random)
     {
         case 0:
-            std::cout << "Generated: A" << std::endl;  // Print the generated type
+            std::cout << "Generated: A" << std::endl;  //
             return new A();
         case 1:
-            std::cout << "Generated: B" << std::endl;  // Print the generated type
-            return new B();
+            std::cout << "Generated: B" << std::endl;  //
         case 2:
-            std::cout << "Generated: C" << std::endl;  // Print the generated type
+            std::cout << "Generated: C" << std::endl;  // 
             return new C();
-        default: return 0; // Replaced nullptr with 0 for C++98 compatibility
+        default: return 0; // 0 for C++98 
     }
 }
 
@@ -54,7 +56,7 @@ void identify(Base& p)
         return;
     } catch (std::bad_cast&)
     {
-        std::cout << "Failed to cast to A" << std::endl;
+        //std::cout << "Failed to cast to A" << std::endl;
     }
     try
     {
@@ -63,7 +65,7 @@ void identify(Base& p)
         return;
     } catch (std::bad_cast&)
     {
-        std::cout << "Failed to cast to b" << std::endl;
+        //std::cout << "Failed to cast to B" << std::endl;
     }
 
     try
@@ -73,7 +75,7 @@ void identify(Base& p)
         return;
     } catch (std::bad_cast&)
     {
-        std::cout << "Failed to cast to C" << std::endl;
+        //std::cout << "Failed to cast to C" << std::endl;
     }
 
     std::cout << "Unknown type" << std::endl;

@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <cstdlib>
+//#include <ctime> nel mac non servivano
+//#include <exception>
+
 
 class Base {
 public:

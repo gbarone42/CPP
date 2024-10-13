@@ -1,6 +1,7 @@
 
 #include "Serializer.hpp"
 #include <iostream>
+// nel mac non mi serviva #include <cstdint>  // For uintptr_t
 
 int main()
 {

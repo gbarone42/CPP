@@ -1,4 +1,6 @@
 #include "IdentifyType.hpp"
+//#include <ctime> nel mac non servivano
+//#include <exception>
 
 int main()
 {

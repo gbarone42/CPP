@@ -2,6 +2,7 @@
 #define SERIALIZER_HPP
 
 #include <string>
+// nel mac non mi serviva #include <cstdint>  // For uintptr_t
 
 struct Data
 {

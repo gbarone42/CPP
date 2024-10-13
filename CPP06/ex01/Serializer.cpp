@@ -1,4 +1,5 @@
 #include "Serializer.hpp"
+// nel mac non mi serviva #include <cstdint>  // For uintptr_t
 
 // Convert Data* to uintptr_t
 uintptr_t Serializer::serialize(Data* ptr)

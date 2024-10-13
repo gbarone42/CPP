@@ -23,6 +23,8 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         value = std::strtod(literal.c_str(), 0);  // even if the string literal is not a float literal it converts the string literal to a double
     }
 
+
+
     if (literal.empty() || (!isFloatLiteral && *literal.c_str() != '0' && value == 0.0))//checks if it is empty //when isFloatLiteral is true the if statement will not trigger unless literal.empty() is true // This checks whether the first character of the string literal is not '0'
     {//Soooo when isFloatLiteral is true, the if statement will not trigger unless literal.empty() is truee
         std::cout << "char: impossible!" << std::endl;
@@ -31,8 +33,7 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         std::cout << "double: impossible!" << std::endl;
         return;
     }
-
-    // nan and inf
+    //
     if (literal == "nan" || literal == "nanf")
     {
         std::cout << "char: impossible" << std::endl;
@@ -60,6 +61,8 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         return;
     }
 
+
+
     // 
     std::cout << "char: ";
     char charResult = convertToChar(value);
@@ -76,7 +79,9 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         std::cout << "impossible" << std::endl;
     }
 
-    // Convert and print int
+
+
+    // 
     std::cout << "int: ";
     int intResult = convertToInt(value);
     if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())//smallest and larger possible integer
@@ -88,8 +93,12 @@ void ScalarConverter::convert(const std::string& literal) //static member functi
         std::cout << intResult << std::endl;
     }
 
+
+
     // ""fixed-point" notation" not ""scientific" notation" //
     std::cout << "float: " << std::fixed << std::setprecision(6) << convertToFloat(value) << "f" << std::endl;
+
+
 
     // Convert and print double
     std::cout << "double: " << convertToDouble(value) << std::endl;

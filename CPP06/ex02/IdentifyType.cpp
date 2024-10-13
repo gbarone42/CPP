@@ -54,7 +54,7 @@ void identify(Base& p)
         return;
     } catch (std::bad_cast&)
     {
-        // Catch if cast to A fails
+        std::cout << "Failed to cast to A" << std::endl;
     }
     try
     {
@@ -63,7 +63,7 @@ void identify(Base& p)
         return;
     } catch (std::bad_cast&)
     {
-        // Catch if cast to B fails
+        std::cout << "Failed to cast to b" << std::endl;
     }
 
     try
@@ -73,7 +73,7 @@ void identify(Base& p)
         return;
     } catch (std::bad_cast&)
     {
-        // Catch if cast to C fails
+        std::cout << "Failed to cast to C" << std::endl;
     }
 
     std::cout << "Unknown type" << std::endl;

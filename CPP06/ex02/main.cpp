@@ -1,6 +1,7 @@
 #include "IdentifyType.hpp"
 
-int main() {
+int main()
+{
     Base* basePtr = generate();
 
     std::cout << "Identifying via pointer: ";

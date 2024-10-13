@@ -18,6 +18,7 @@ Base* generate(void)
             return new A();
         case 1:
             std::cout << "Generated: B" << std::endl;  //
+            return new B();
         case 2:
             std::cout << "Generated: C" << std::endl;  // 
             return new C();

@@ -26,9 +26,9 @@ Base* generate(void)
 // Identifies the type of the object pointed to by Base* p
 void identify(Base* p)
 {
-    if (p == nullptr)
+    if (p == NULL)
     {
-        std::cout << "Pointer is NNull" << std::endl;
+        std::cout << "Pointer is NNulll" << std::endl;
         return;
     }
 

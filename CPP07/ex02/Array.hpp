@@ -63,3 +63,9 @@ public:
 };
 
 #endif // ARRAY_HPP
+
+
+//
+//
+//A class template is a blueprint for creating classes that can operate with any data type. It allows you to define a class
+//in a generic way so that it can handle different types without needing to create separate classes for each type. 

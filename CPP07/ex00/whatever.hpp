@@ -1,11 +1,7 @@
 #ifndef WHATEVER_HPP
 #define WHATEVER_HPP
 
-
-
-
 /*
-
 class Awesome
 {
   public:
@@ -23,7 +19,6 @@ class Awesome
     int _n;
 };
 std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); return o; }
-
 */
 
 

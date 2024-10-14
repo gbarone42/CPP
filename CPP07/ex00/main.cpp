@@ -36,3 +36,9 @@ int main(void)
         return (0);
 }
 */
+
+//Function Templates allow you to create a single function definition 
+//that can work with different data types without repeating code for each type.
+
+//Type Deduction: When you call a function template,
+//the compiler deduces the type based on the arguments you pass. 

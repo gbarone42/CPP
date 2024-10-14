@@ -1,7 +1,7 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
-
+/*
 class Awesome
 {
   public:
@@ -23,7 +23,7 @@ void print( T& x )
   std::cout << x << std::endl;
   return;
 }
-
+*/
 template <typename T , typename H>
 void iter(T* array, size_t length, H func)
 {

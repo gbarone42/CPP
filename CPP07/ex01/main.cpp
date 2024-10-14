@@ -2,27 +2,22 @@
 #include "iter.hpp"
 
 
-/*
+
 // A sample function to be applied to each element of the array
-void printElement(int &element)
+void print(const int& x)
 {
-    std::cout << element << " ";
+    std::cout << x << std::endl; // Print each element
 }
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6 , 7 , 7};
-    size_t length = sizeof(arr) / sizeof(arr[0]);
-
-    std::cout << "Array elements: ";
-    iter(arr, length, printElement);
-    std::cout << std::endl;
+    int tab[] = {0, 1, 2, 3, 4, 5, 6}; // Sample array
+    iter(tab, 8, print);         // puntatore alla funzione
 
     return 0;
 }
-*/
 
-
+/*
 int main()
 {
   int tab[] = { 0, 1, 2, 3, 4 };
@@ -33,3 +28,4 @@ int main()
 
   return 0;
 }
+*/

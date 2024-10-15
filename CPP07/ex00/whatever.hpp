@@ -43,3 +43,5 @@ T max(const T &a, const T &b)
 }
 
 #endif // WHATEVER_HPP
+
+//function template focus on creating methods that can be reused for different data types

@@ -4,7 +4,9 @@
 #include <iostream>
 #include <exception>
 
-template <typename T>
+//class template is a blueprint for a class that can work with any datatype
+
+template <typename T>//T is  placeholder for a datatype that will be specified later
 class Array {
 private:
     T* _array;
@@ -43,7 +45,8 @@ public:
         return *this;
     }
 
-    ~Array() {
+    ~Array()
+    {
         delete[] _array;
     }
 

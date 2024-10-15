@@ -12,7 +12,7 @@ void print(const int& x)
 int main()
 {
     int tab[] = {0, 1, 2, 3, 4, 5, 6}; // Sample array
-    iter(tab, 8, print);         // puntatore alla funzione
+    iter(tab, 7, print);         // puntatore alla funzione
 
     return 0;
 }

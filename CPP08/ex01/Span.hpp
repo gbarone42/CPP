@@ -1,27 +1,23 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <iostream>
-#include <exception>
+#include <vector>
+#include <algorithm>
+#include <stdexcept>
+#include <limits> // Include this header for numeric_limits
 
 class Span {
 public:
-    Span(unsigned int N);
-    ~Span();
-    Span(const Span &other);
-    Span &operator=(const Span &other);
-
+    Span(unsigned int n);
     void addNumber(int number);
-    void addNumbers(int* numbers, size_t size); // New function to add multiple numbers
-    int shortestSpan() const;
-    int longestSpan() const;
+    template <typename Iter>
+    void addNumber(Iter begin, Iter end); // Improved addNumber function
+    int shortestSpan();
+    int longestSpan();
 
 private:
-    int* numbers;           // Dynamic array to store numbers
-    unsigned int maxSize;   // Maximum size of the Span
-    unsigned int currentSize; // Current size of the Span
-
-    void copy(const Span &other); // Helper function for deep copy
+    std::vector<int> numbers;
+    unsigned int maxSize;
 };
 
 #endif // SPAN_HPP

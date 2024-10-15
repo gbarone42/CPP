@@ -1,23 +1,16 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = span
-
 SRCS = main.cpp Span.cpp
 OBJS = $(SRCS:.cpp=.o)
+TARGET = span
 
-all: $(NAME)
+all: $(TARGET)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(TARGET)
 
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
+re: clean all

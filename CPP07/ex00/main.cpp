@@ -24,6 +24,12 @@ int main(void)
 
 
 
+//when dealing with strings the concept of minimum and maximum is based on lexicographical order
+//the first string that has a character with a smaller ascii value will be the smallest
+//ascii value of "1" is 49
+//ascii value of "2" is 50
+
+
 /*
 int main(void)
 {

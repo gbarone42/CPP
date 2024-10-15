@@ -22,7 +22,7 @@ std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); 
 */
 
 
-template <typename T>
+template <typename T>//T is a placeholder for whatever datatype, the complier will set the appropiate datatype
 void swap(T &a, T &b)
 {
     T temp = a;
@@ -33,12 +33,22 @@ void swap(T &a, T &b)
 template <typename T>
 T min(const T &a, const T &b)
 {
+    if (a == b)
+    {
+        std::cout << "Values are the same, no min." << std::endl;
+        return a; // Return either value (they are the same)
+    }
     return (a < b) ? a : b;
 }
 
 template <typename T>
 T max(const T &a, const T &b)
 {
+    if (a == b)
+    {
+        std::cout << "Values are the same, no min." << std::endl;
+        return a; // Return either value (they are the same)
+    }
     return (a > b) ? a : b;
 }
 

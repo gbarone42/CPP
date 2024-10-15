@@ -3,37 +3,42 @@
 
 #include <stack>
 #include <iterator>
+#include <stdexcept>
+#include <deque>
 
 template <typename T>
 class MutantStack : public std::stack<T> {
 public:
-    // Constructor to allow construction with initial capacity
-    MutantStack() : std::stack<T>() {}
-    MutantStack(const MutantStack &other) : std::stack<T>(other) {} // Copy constructor
-    MutantStack &operator=(const MutantStack &other) { // Assignment operator
-        if (this != &other) {
-            std::stack<T>::operator=(other);
-        }
-        return *this;
-    }
+    // Iterator type definition
+    class iterator : public std::iterator<std::input_iterator_tag, T> {
+        public:
+            explicit iterator(typename std::deque<T>::iterator it) : current(it) {}
 
-    typedef typename std::stack<T>::container_type::iterator iterator;
-    typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+            T& operator*() { return *current; }
+            iterator& operator++() { current--; return *this; } // Decrement to move backwards
+            bool operator!=(const iterator& other) const { return current != other.current; }
+        private:
+            typename std::deque<T>::iterator current;
+    };
 
+    // Constructor and Destructor
+    MutantStack() {}
+    ~MutantStack() {}
+
+    // Adding stack methods from std::stack
+    using std::stack<T>::push;
+    using std::stack<T>::pop;
+    using std::stack<T>::top;
+    using std::stack<T>::size;
+    using std::stack<T>::empty;
+
+    // Iterator methods
     iterator begin() {
-        return this->c.begin(); // Access the underlying container's begin
+        return iterator(this->c.end() - 1); // Start from the last element
     }
-
+    
     iterator end() {
-        return this->c.end(); // Access the underlying container's end
-    }
-
-    const_iterator begin() const {
-        return this->c.begin(); // Const version for begin
-    }
-
-    const_iterator end() const {
-        return this->c.end(); // Const version for end
+        return iterator(this->c.begin() - 1); // One before the first element
     }
 };
 

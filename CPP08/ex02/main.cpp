@@ -3,29 +3,37 @@
 
 int main() {
     MutantStack<int> mstack;
-
+    
+    // Basic stack operations
     mstack.push(5);
     mstack.push(17);
-
-    std::cout << mstack.top() << std::endl; // Outputs 17
+    std::cout << "Top element: " << mstack.top() << std::endl; // Expected: 17
     mstack.pop();
-    std::cout << mstack.size() << std::endl; // Outputs 1
+    std::cout << "Stack size after pop: " << mstack.size() << std::endl; // Expected: 1
+
+    // Push additional elements
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
     mstack.push(0);
 
+    // Using iterators to traverse the stack
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
-
-    ++it; // Move iterator to second element
-    --it; // Move back to first element
-
+    
+    std::cout << "Stack elements using iterator:" << std::endl;
     while (it != ite) {
-        std::cout << *it << std::endl; // Outputs all elements
+        std::cout << *it << std::endl; // Print each element
         ++it;
     }
 
-    std::stack<int> s(mstack); // Copy to a standard stack
+    // Copying to std::stack to demonstrate interoperability
+    std::stack<int> s(mstack);
+    std::cout << "Top of std::stack: " << s.top() << std::endl; // Expected: 0
+
+    // Additional tests
+    mstack.push(42);
+    std::cout << "Stack size after adding 42: " << mstack.size() << std::endl; // Expected: 5
+
     return 0;
 }

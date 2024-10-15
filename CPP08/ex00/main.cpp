@@ -1,26 +1,28 @@
 #include <iostream>
-#include <vector>
 #include "easyfind.hpp"
 
-int main() {
-    std::vector<int> vec;
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
+int main()
+{
+    int arr[] = {1, 2, 3, 4, 5};
+    size_t size = sizeof(arr) / sizeof(arr[0]);
+    
+    EasyFind<int> finder(arr, size);
 
-    try {
-        std::vector<int>::iterator it = easyfind(vec, 3);
-        std::cout << "Found value: " << *it << std::endl;
-    } catch (const std::runtime_error &e) {
+    try
+    {
+        int index = finder.find(3);
+        std::cout << "Found value at index: " << index << std::endl;
+    } catch (const std::runtime_error &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 
-    try {
-        std::vector<int>::iterator it = easyfind(vec, 6);
-        std::cout << "Found value: " << *it << std::endl;
-    } catch (const std::runtime_error &e) {
+    try
+    {
+        int index = finder.find(6);
+        std::cout << "Found value at index: " << index << std::endl;
+    } catch (const std::runtime_error &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 

@@ -14,8 +14,13 @@ int main() {
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
-        // Uncommenting the following line should throw an exception
-        // sp.addNumber(20);
+        // Example of adding multiple numbers
+        int nums[] = {1, 5, 8, 12};
+        sp.addNumbers(nums, sizeof(nums)/sizeof(nums[0]));
+
+        std::cout << "Shortest span after adding more numbers: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span after adding more numbers: " << sp.longestSpan() << std::endl;
+
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }

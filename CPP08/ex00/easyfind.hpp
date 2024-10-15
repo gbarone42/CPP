@@ -1,18 +1,28 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-#include <algorithm>
 #include <exception>
-#include <iterator>
 #include <iostream>
 
 template <typename T>
-typename T::iterator easyfind(T &container, int value) {
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
-    if (it == container.end()) {
+class EasyFind {
+public:
+    EasyFind(T* array, size_t size) : arr(array), arrSize(size) {}
+
+    int find(int value) const
+    {
+        for (size_t i = 0; i < arrSize; ++i)
+        {
+            if (arr[i] == value) {
+                return i; // Return index if found
+            }
+        }
         throw std::runtime_error("Value not found in the container.");
     }
-    return it;
-}
+
+private:
+    T* arr;        // Pointer to the array
+    size_t arrSize; // Size of the array
+};
 
 #endif // EASYFIND_HPP

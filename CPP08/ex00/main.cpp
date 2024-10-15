@@ -5,7 +5,8 @@
 
 int main()
 {
-    try {
+    try
+    {
         //vector
         std::vector<int> vec;
         vec.push_back(1);

@@ -7,10 +7,12 @@
 #include <deque>
 
 template <typename T>
-class MutantStack : public std::stack<T> {
+class MutantStack : public std::stack<T>
+{
 public:
     // Iterator type definition
-    class iterator : public std::iterator<std::input_iterator_tag, T> {
+    class iterator : public std::iterator<std::input_iterator_tag, T>
+    {
         public:
             explicit iterator(typename std::deque<T>::iterator it) : current(it) {}
 
@@ -33,11 +35,13 @@ public:
     using std::stack<T>::empty;
 
     // Iterator methods
-    iterator begin() {
+    iterator begin()
+    {
         return iterator(this->c.end() - 1); // Start from the last element
     }
     
-    iterator end() {
+    iterator end()
+    {
         return iterator(this->c.begin() - 1); // One before the first element
     }
 };

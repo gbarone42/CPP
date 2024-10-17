@@ -31,11 +31,15 @@ int main()
 
         
         it = easyfind(vec, 6); // This will throw an exception
+       // it2 = easyfind(lst, 80);
     }
     catch (const std::runtime_error& e)
     {
         std::cerr << e.what() << std::endl;
     }
+
+    
+        
 
     return 0;
 }

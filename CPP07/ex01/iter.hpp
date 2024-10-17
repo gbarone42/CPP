@@ -35,7 +35,7 @@ void iter(T* array, size_t length, H func)
 }
 
 /*
-template <typename T>
+template <typename T> // in questa function template
 void iter(T* array, size_t length, void (*func)(T&))
 {
     for (size_t i = 0; i < length; ++i)

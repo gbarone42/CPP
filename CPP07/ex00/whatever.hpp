@@ -36,7 +36,7 @@ T min(const T &a, const T &b)
     if (a == b)
     {
         std::cout << "Values are the same, no min." << std::endl;
-        return a; // Return either value (they are the same)
+        return a; // they are the same
     }
     return (a < b) ? a : b;
 }
@@ -47,11 +47,11 @@ T max(const T &a, const T &b)
     if (a == b)
     {
         std::cout << "Values are the same, no min." << std::endl;
-        return a; // Return either value (they are the same)
+        return a; //(they are the same)
     }
     return (a > b) ? a : b;
 }
 
 #endif // WHATEVER_HPP
 
-//function template focus on creating methods that can be reused for different data types
+//function template

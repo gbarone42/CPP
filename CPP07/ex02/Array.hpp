@@ -13,13 +13,15 @@ private:
     unsigned int _size;
 
 public:
+//default
     Array() : _array(NULL), _size(0) {}
 
+//costruttore con i parametri
     Array(unsigned int n) : _size(n)
     {
-        _array = new T[n](); // Default initialize elements
+        _array = new T[n](); // default init
     }
-
+//copia
     Array(const Array& other)
     {
         _size = other._size;
@@ -63,6 +65,21 @@ public:
     {
         return _size;
     }
+};
+//T allowing it to work with any datatype
+class Point
+{
+public:
+    Point(int x = 0, int y = 0) : _x(x), _y(y) {} // Constructor
+
+    void display() const
+    {
+        std::cout << "Point(" << _x << ", " << _y << ")" << std::endl;
+    }
+
+private:
+    int _x; // X-coordinate
+    int _y; // Y-coordinate
 };
 
 #endif // ARRAY_HPP

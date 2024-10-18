@@ -5,7 +5,7 @@
 #include <stdexcept>// for runtime_error
 
 template <typename T>
-typename T::iterator easyfind(T& container, int value)//this function is declared as a template
+typename T::iterator easyfind(T& container, int value)//temeplate
 {
     typename T::iterator it = std::find(container.begin(), container.end(), value);
     if (it == container.end())
@@ -18,6 +18,6 @@ typename T::iterator easyfind(T& container, int value)//this function is declare
 #endif // EASYFIND_HPP
 
 //"T& container" a reference to the container in which we find the value
-//"int value" the value we looking for
 //"find" returns an iterator pointing pointing to that value
 //if it fails it return .end and an error message is printed
+//STL = standard template library

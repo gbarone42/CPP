@@ -1,6 +1,8 @@
 #include <iostream>
 #include "whatever.hpp"
 
+
+
 int main(void)
 {
     int a = 2;
@@ -24,8 +26,8 @@ int main(void)
 
 
 
-//when dealing with strings the concept of minimum and maximum is based on lexicographical order
-//the first string that has a character with a smaller ascii value will be the smallest
+//lexicographical order
+//
 //ascii value of "1" is 49
 //ascii value of "2" is 50
 
@@ -42,9 +44,7 @@ int main(void)
         return (0);
 }
 */
-
-//Function Templates allow you to create a single function definition 
-//that can work with different data types without repeating code for each type.
-
+//Single function definition 
+//
 //Type Deduction: When you call a function template,
 //the compiler deduces the type based on the arguments you pass. 

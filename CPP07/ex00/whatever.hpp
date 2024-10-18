@@ -1,6 +1,6 @@
 #ifndef WHATEVER_HPP
 #define WHATEVER_HPP
-
+#include <iostream>
 /*
 class Awesome
 {
@@ -22,7 +22,7 @@ std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); 
 */
 
 
-template <typename T>//T is a placeholder for whatever datatype, the complier will set the appropiate datatype
+template <typename T>//the complier will set the appropiate datatype
 void swap(T &a, T &b)
 {
     T temp = a;

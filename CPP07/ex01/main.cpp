@@ -3,16 +3,18 @@
 
 
 
-// A sample function to be applied to each element of the array
+
 void print(const int& x)
 {
-    std::cout << x << std::endl; // Print each element
+    std::cout << x << std::endl;
 }
 
 int main()
 {
-    int tab[] = {0, 1, 2, 3, 4, 5, 6}; // Sample array
-    iter(tab, 7, print);         // puntatore alla funzione
+    int tab[] = {0, 1, 2, 3, 4, 5, 6};
+    iter(tab, 7, print);
+    //iter(tab, 6, print);
+    //iter(tab, 8, print);
 
     return 0;
 }

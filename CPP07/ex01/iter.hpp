@@ -24,6 +24,7 @@ void print( T& x )
   return;
 }
 */
+
 template <typename T , typename H>
 void iter(T* array, size_t length, H func)
 {
@@ -35,7 +36,7 @@ void iter(T* array, size_t length, H func)
 }
 
 /*
-template <typename T> // in questa function template
+template <typename T> // in questa function template c'e' solo un tipo generico definito infatti non funziona con datatype diversi passati dai valori di paramentro
 void iter(T* array, size_t length, void (*func)(T&))
 {
     for (size_t i = 0; i < length; ++i)

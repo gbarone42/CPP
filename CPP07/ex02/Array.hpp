@@ -4,7 +4,6 @@
 #include <iostream>
 #include <exception>
 
-//class template is a blueprint for a class that can work with any datatype
 
 template <typename T>//T is  placeholder for a datatype that will be specified later
 class Array {
@@ -36,7 +35,7 @@ public:
     {
         if (this != &other)
         {
-            delete[] _array; // Free existing resource
+            delete[] _array; // libera
             _size = other._size;
             _array = new T[_size];
             for (unsigned int i = 0; i < _size; ++i)
@@ -61,17 +60,57 @@ public:
         return _array[index];
     }
 
-    unsigned int size() const
+unsigned int size() const
     {
         return _size;
     }
 };
-//T allowing it to work with any datatype
+//
 class Point
 {
 public:
-    Point(int x = 0, int y = 0) : _x(x), _y(y) {} // Constructor
+    Point(int x = 0, int y = 0) : _x(x), _y(y) {} //
 
+    void display() const
+    {
+        std::cout << "Point(" << _x << ", " << _y << ")" << std::endl;
+    }
+
+private:
+    int _x; //
+    int _y; //
+};
+
+#endif // ARRAY_HPP
+
+/*
+
+#include <iostream>
+
+class Point
+{
+public:
+    // Default constructor
+    Point(int x = 0, int y = 0) : _x(x), _y(y) {}
+
+    // Copy constructor
+    Point(const Point& other) : _x(other._x), _y(other._y) {}
+
+    // Copy assignment operator
+    Point& operator=(const Point& other)
+    {
+        if (this != &other)
+        {
+            _x = other._x;
+            _y = other._y;
+        }
+        return *this;
+    }
+
+    // Destructor
+    ~Point() {}
+
+    // Display function
     void display() const
     {
         std::cout << "Point(" << _x << ", " << _y << ")" << std::endl;
@@ -82,10 +121,5 @@ private:
     int _y; // Y-coordinate
 };
 
-#endif // ARRAY_HPP
 
-
-//
-//
-//A class template is a blueprint for creating classes that can operate with any data type. It allows you to define a class
-//in a generic way so that it can handle different types without needing to create separate classes for each type. 
+*/

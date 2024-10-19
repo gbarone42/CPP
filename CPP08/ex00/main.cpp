@@ -57,10 +57,14 @@ int main()
         std::cout << std::endl;
 
         std::cout << "Found 20 in list at position: " << std::distance(list.begin(), it2) << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        
         it2 = easyfind(list, 50);
         std::cout << "Found 50 in list at position: " << std::distance(list.begin(), it2) << std::endl;
 
-        
+        std::cout << std::endl;
+        std::cout << std::endl;
         //
         it2 = easyfind(list, 80); // l'exception ok
         //it = easyfind(vec, 6); // l'exception ok

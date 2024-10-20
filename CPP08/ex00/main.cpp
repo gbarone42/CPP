@@ -10,26 +10,34 @@ int main()
     {
         //vec
         std::vector<int> vec;
-        vec.push_back(1);
+        vec.push_back(-1);
+        vec.push_back(0);
         vec.push_back(2);
         vec.push_back(3);
         vec.push_back(4);
         vec.push_back(5);
         
         std::vector<int>::iterator it = easyfind(vec, 3);
+        std::vector<int>::iterator it5 = easyfind(vec, -1);
+        std::vector<int>::iterator it6 = easyfind(vec, 5);
+
         std::vector<int>::iterator it3 = vec.begin();
 
         std::cout << std::endl;
         std::cout << "Elements in vector: ";
          while (it3 != vec.end())
         {
-            std::cout << *it3 << " "; // Dereferencing the iterator to access the value
-            ++it3; // Move to the next element
+            std::cout << *it3 << " "; 
+            ++it3; // ovo
         }
         std::cout << std::endl;
         std::cout << std::endl;
 
         std::cout << "Found 3 in vector at position: " << std::distance(vec.begin(), it) << std::endl;
+        std::cout << "Found -1 in vector at position: " << std::distance(vec.begin(), it5) << std::endl;
+        std::cout << "Found 5 in vector at position: " << std::distance(vec.begin(), it6) << std::endl;
+
+
 
         std::cout << std::endl;
         std::cout << std::endl;

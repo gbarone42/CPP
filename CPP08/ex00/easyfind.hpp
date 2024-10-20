@@ -1,13 +1,16 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-#include <algorithm>//for find
-#include <stdexcept>// for runtime_error
-
+#include <algorithm>//find
+#include <stdexcept>//runtime_error
+#include <iostream>
+#include <vector>
+#include <list>
+//attraverso
 template <typename T>
-typename T::iterator easyfind(T& container, int value)//temeplate
+typename T::iterator easyfind(T& container, int value)//temeplate cosi' funziona sia con list che con vector
 {
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
+    typename T::iterator it = std::find(container.begin(), container.end(), value);//trova nel range dato da begin fino a end
     if (it == container.end())
     {
         throw std::runtime_error("Value not found");

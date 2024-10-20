@@ -1,62 +1,76 @@
-#include <vector>
-#include <algorithm>
-#include <stdexcept>
-#include <limits>
+#include "Span.hpp"
 
-class Span {
-public:
-    Span(unsigned int n) : maxSize(n) {}
-    
-    void addNumber(int number)
+
+Span::Span(unsigned int n) : maxSize(n) {}
+
+
+Span::Span(const Span &other) : numbers(other.numbers), maxSize(other.maxSize) {}
+
+
+Span& Span::operator=(const Span &other)
+{
+    if (this != &other)
     {
-        if (numbers.size() >= maxSize)
-        {
-            throw std::out_of_range("Cannot add more numbers");
-        }
-        numbers.push_back(number);
+        numbers = other.numbers;
+        maxSize = other.maxSize;
     }
-    
-    template <typename Iter>
-    void addNumbers(Iter begin, Iter end)
+    return *this;
+}
+
+Span::~Span() {}
+
+void Span::addNumber(int number)
+{
+    if (numbers.size() >= maxSize)
     {
-        for (Iter it = begin; it != end; ++it)
-        {
-            addNumber(*it); // Use the existing addNumber for validation
-        }
+        throw std::out_of_range("Cannot add more numbers");
     }
-    
-    int shortestSpan()
+    numbers.push_back(number);
+}
+
+// Explicit instantiation of the template method
+template void Span::addNumbers<std::vector<int>::iterator>(std::vector<int>::iterator, std::vector<int>::iterator);
+
+
+template <typename Iter>
+void Span::addNumbers(Iter begin, Iter end)
+{
+    for (Iter it = begin; it != end; ++it)
     {
-        if (numbers.size() < 2)
-        {
-            throw std::logic_error("Not enough numbers to find a span");
-        }
-        
-        std::vector<int> sortedNumbers(numbers); 
-        std::sort(sortedNumbers.begin(), sortedNumbers.end()); 
-        int shortest = std::numeric_limits<int>::max();
-        
-        for (size_t i = 1; i < sortedNumbers.size(); ++i)
-        {
-            shortest = std::min(shortest, sortedNumbers[i] - sortedNumbers[i - 1]);
-        }
-        
-        return shortest;
+        addNumber(*it); //
     }
-    
-    int longestSpan()
+}
+
+
+int Span::shortestSpan()
+{
+    if (numbers.size() < 2)
     {
-        if (numbers.size() < 2)
-        {
-            throw std::logic_error("Not enough numbers to find a span");
-        }
-        
-        int min = *std::min_element(numbers.begin(), numbers.end());
-        int max = *std::max_element(numbers.begin(), numbers.end());
-        return max - min;
+        throw std::logic_error("Not enough numbers to find a span");
     }
 
-private:
-    std::vector<int> numbers;
-    unsigned int maxSize;
-};
+    std::vector<int> sortedNumbers(numbers); 
+    std::sort(sortedNumbers.begin(), sortedNumbers.end()); 
+    int shortest = std::numeric_limits<int>::max();
+
+    for (size_t i = 1; i < sortedNumbers.size(); ++i)
+    {
+        shortest = std::min(shortest, sortedNumbers[i] - sortedNumbers[i - 1]);
+    }
+
+    return shortest;
+}
+
+//ongest span
+int Span::longestSpan()
+{
+    if (numbers.size() < 2)
+    {
+        throw std::logic_error("Not enough numbers to find a span");
+    }
+
+    int min = *std::min_element(numbers.begin(), numbers.end());
+    int max = *std::max_element(numbers.begin(), numbers.end());
+    return max - min;
+}
+

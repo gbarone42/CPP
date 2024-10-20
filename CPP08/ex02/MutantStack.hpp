@@ -3,31 +3,20 @@
 
 #include <stack>
 #include <iterator>
-#include <stdexcept>
-#include <deque>
+#include <deque> // For underlying container
+#include <stdexcept> // For exceptions
 
 template <typename T>
-class MutantStack : public std::stack<T>
-{
+class MutantStack : public std::stack<T> {
 public:
-    // Iterator type definition
-    class iterator : public std::iterator<std::input_iterator_tag, T>
-    {
-        public:
-            explicit iterator(typename std::deque<T>::iterator it) : current(it) {}
-
-            T& operator*() { return *current; }
-            iterator& operator++() { current--; return *this; } // Decrement to move backwards
-            bool operator!=(const iterator& other) const { return current != other.current; }
-        private:
-            typename std::deque<T>::iterator current;
-    };
+    // Typedef for the iterator type
+    typedef typename std::deque<T>::iterator iterator;
 
     // Constructor and Destructor
     MutantStack() {}
     ~MutantStack() {}
 
-    // Adding stack methods from std::stack
+    // Using the stack methods
     using std::stack<T>::push;
     using std::stack<T>::pop;
     using std::stack<T>::top;
@@ -35,14 +24,12 @@ public:
     using std::stack<T>::empty;
 
     // Iterator methods
-    iterator begin()
-    {
-        return iterator(this->c.end() - 1); // Start from the last element
+    iterator begin() {
+        return this->c.begin(); // Access the underlying container's begin
     }
     
-    iterator end()
-    {
-        return iterator(this->c.begin() - 1); // One before the first element
+    iterator end() {
+        return this->c.end(); // Access the underlying container's end
     }
 };
 

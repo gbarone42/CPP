@@ -5,7 +5,7 @@
 #include <sstream>
 #include <stack>
 #include <stdexcept>
-#include <climits> // for INT_MAX and INT_MIN
+#include <climits> 
 
 void RPN::evaluate(const std::string& expression)
 {
@@ -15,10 +15,9 @@ void RPN::evaluate(const std::string& expression)
 
     while (iss >> token)
     {
-        // Check if the token is a number (including multi-digit numbers)
         if (token.find_first_not_of("0123456789") == std::string::npos)
         {
-            numbers.push(atoi(token.c_str())); // Convert token to integer and push to stack
+            numbers.push(atoi(token.c_str()));
         }
         else if (token == "+" || token == "-" || token == "*" || token == "/")
         {
@@ -29,7 +28,7 @@ void RPN::evaluate(const std::string& expression)
 
             int right = numbers.top(); numbers.pop();
             int left = numbers.top(); numbers.pop();
-            long long result; // Use long long to detect overflow
+            long long result; //detect overflow
 
             if (token == "+")
             {
@@ -55,20 +54,43 @@ void RPN::evaluate(const std::string& expression)
                 result = left / right;
             }
 
-            numbers.push((int)result); // Push the valid result to the stack
+            numbers.push((int)result);
         }
         else
         {
             throw std::runtime_error("Error: invalid token => " + token);
         }
     }
-
-    // Check for errors related to the final state of the stack
     if (numbers.size() != 1)
     {
         throw std::runtime_error("Error: too many operands.");
     }
 
-    // Print the final result
     std::cout << numbers.top() << std::endl;
 }
+
+
+/*
+
+// Default Constructor
+RPN::RPN() {
+}
+
+// Copy Constructor
+RPN::RPN(const RPN& other) {
+}
+
+// Copy Assignment Operator
+RPN& RPN::operator=(const RPN& other) {
+    if (this != &other) {
+    }
+    return *this;
+}
+
+// Destructor
+RPN::~RPN() {
+
+}
+
+
+*/

@@ -136,6 +136,29 @@ void BitcoinExchange::calculateValue(const std::string& input)
     }
 }
 
+/*
+BitcoinExchange::BitcoinExchange() {}
+
+// Copy constructor
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+{
+    priceMap = other.priceMap;
+}
+
+// Copy assignment operator
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
+{
+    if (this != &other)
+    {
+        priceMap = other.priceMap;
+    }
+    return *this;
+}
+
+// Destructor
+BitcoinExchange::~BitcoinExchange() {}
+
+*/
 
 /*
 // Helper function to check for leap years

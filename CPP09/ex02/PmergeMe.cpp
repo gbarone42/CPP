@@ -169,3 +169,33 @@ void PmergeMe::merge(std::list<int>& left, std::list<int>& right, std::list<int>
     while (itRight != right.end())
         result.push_back(*itRight++);
 }
+
+
+
+/*
+// Default Constructor
+PmergeMe::PmergeMe() {
+    //
+}
+
+// Copy Constructor
+PmergeMe::PmergeMe(const PmergeMe& other) {
+
+    sortedVector = other.sortedVector;
+    sortedList = other.sortedList;
+}
+
+// Copy Assignment Operator
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
+    if (this != &other) {
+        
+        sortedVector = other.sortedVector;
+        sortedList = other.sortedList;
+    }
+    return *this;
+}
+
+// Destructor
+PmergeMe::~PmergeMe() {
+    // No dynamic resources to clean up for now
+}*/

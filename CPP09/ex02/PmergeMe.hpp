@@ -9,6 +9,14 @@
 
 class PmergeMe {
 public:
+
+/*
+    // Canonical Orthodox Form
+    PmergeMe();                                // Default Constructor
+    PmergeMe(const PmergeMe& other);            // Copy Constructor
+    PmergeMe& operator=(const PmergeMe& other); // Copy Assignment Operator
+    ~PmergeMe();  
+*/
     void sort(const std::vector<int>& input);
     void sort(const std::list<int>& input);
     void printSorted() const;

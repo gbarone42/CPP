@@ -53,34 +53,35 @@ void PmergeMe::fordJohnsonSort(std::vector<int>& vec)
     if (vec.size() <= 1)
         return;
 
-    // Sort in pairs
-    std::vector<int> left, right;
-    for (size_t i = 0; i < vec.size(); i += 2)
+    std::vector<int> left, right;//lo splitto in due vec
+    for (size_t i = 0; i < vec.size(); i += 2)//due alla volta
     {
-        if (i + 1 < vec.size())
+        if (i + 1 < vec.size())//controllo se sono due o l'ultimo
         {
             if (vec[i] < vec[i + 1])
             {
-                left.push_back(vec[i]);
+                left.push_back(vec[i]);//pusho sempre il piu piccolo a sinistra
                 right.push_back(vec[i + 1]);
             }
             else
             {
-                left.push_back(vec[i + 1]);
+                left.push_back(vec[i + 1]);//pusho sempre il piu piccolo a sinistra
                 right.push_back(vec[i]);
             }
         }
         else
         {
-            left.push_back(vec[i]);
+            left.push_back(vec[i]);//vuol dire che non c'erano piu coppie
         }
     }
 
-    // Recursively sort the left and right halves
+
+
     fordJohnsonSort(left);
     fordJohnsonSort(right);
 
-    // Merge the two sorted halves
+
+
     std::vector<int> result;
     merge(left, right, result);
 
@@ -92,7 +93,7 @@ void PmergeMe::fordJohnsonSort(std::list<int>& lst)
     if (lst.size() <= 1)
         return;
 
-    // Sort in pairs
+ 
     std::list<int> left, right;
     std::list<int>::iterator it = lst.begin();
     while (it != lst.end())
@@ -120,11 +121,17 @@ void PmergeMe::fordJohnsonSort(std::list<int>& lst)
         }
     }
 
-    // Recursively sort the left and right halves
+
     fordJohnsonSort(left);
+    
     fordJohnsonSort(right);
 
-    // Merge the two sorted halves
+
+
+
+
+
+
     std::list<int> result;
     merge(left, right, result);
 

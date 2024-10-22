@@ -2,29 +2,29 @@
 
 void PmergeMe::sort(const std::vector<int>& input)
 {
-    std::vector<int> vec = input;
-    // Use traditional timing method without auto
+    std::vector<int> vec = input;//non modificare l'originale //good practice
     clock_t start = clock();
-    mergeInsertionSort(vec);
+    fordJohnsonSort(vec);
     clock_t end = clock();
-    
-    sortedVector = vec;
 
-    double elapsed = double(end - start) / CLOCKS_PER_SEC * 1e6; // Convert to microseconds
+    sortedVector = vec;//il risultato copiato nel member class della classe pmerge
+
+    double elapsed = double(end - start) / CLOCKS_PER_SEC * 1e6;
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " 
-              << elapsed << " us" << std::endl;
+              << elapsed << " usainbolt!" << std::endl;
 }
 
 void PmergeMe::sort(const std::list<int>& input)
 {
     std::list<int> lst = input;
+    
     clock_t start = clock();
-    mergeInsertionSort(lst);
+    fordJohnsonSort(lst);
     clock_t end = clock();
     
     sortedList = lst;
 
-    double elapsed = double(end - start) / CLOCKS_PER_SEC * 1e6; // Convert to microseconds
+    double elapsed = double(end - start) / CLOCKS_PER_SEC * 1e6; //fino a qui uguale, la dimensione poi si calcola diversamente
     std::cout << "Time to process a range of " << std::distance(lst.begin(), lst.end()) << " elements with std::list: " 
               << elapsed << " usainbolt!" << std::endl;
 }
@@ -32,7 +32,7 @@ void PmergeMe::sort(const std::list<int>& input)
 void PmergeMe::printSorted() const
 {
     std::cout << "Sorted vector: ";
-    // Replace range-based for loop with traditional for loop
+
     for (size_t i = 0; i < sortedVector.size(); ++i)
 	{
         std::cout << sortedVector[i] << " ";
@@ -40,42 +40,125 @@ void PmergeMe::printSorted() const
     std::cout << std::endl;
 
     std::cout << "Sorted list: ";
-    // Use an iterator to print the sorted list
+
     for (std::list<int>::const_iterator it = sortedList.begin(); it != sortedList.end(); ++it)
-	{
+	{//std::list dont have a size method
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 }
 
-void PmergeMe::mergeInsertionSort(std::vector<int>& vec)
+void PmergeMe::fordJohnsonSort(std::vector<int>& vec)
 {
-    // Insertion Sort for small sections
-    for (size_t i = 1; i < vec.size(); i++)
-	{
-        int key = vec[i];
-        size_t j = i;
-        while (j > 0 && vec[j - 1] > key)
-		{
-            vec[j] = vec[j - 1];
-            j--;
+    if (vec.size() <= 1)
+        return;
+
+    // Sort in pairs
+    std::vector<int> left, right;
+    for (size_t i = 0; i < vec.size(); i += 2)
+    {
+        if (i + 1 < vec.size())
+        {
+            if (vec[i] < vec[i + 1])
+            {
+                left.push_back(vec[i]);
+                right.push_back(vec[i + 1]);
+            }
+            else
+            {
+                left.push_back(vec[i + 1]);
+                right.push_back(vec[i]);
+            }
         }
-        vec[j] = key;
+        else
+        {
+            left.push_back(vec[i]);
+        }
     }
+
+    // Recursively sort the left and right halves
+    fordJohnsonSort(left);
+    fordJohnsonSort(right);
+
+    // Merge the two sorted halves
+    std::vector<int> result;
+    merge(left, right, result);
+
+    vec = result;
 }
 
-void PmergeMe::mergeInsertionSort(std::list<int>& lst)
+void PmergeMe::fordJohnsonSort(std::list<int>& lst)
 {
-    // Insertion Sort for small sections
-    for (std::list<int>::iterator it = ++lst.begin(); it != lst.end(); ++it)
-	{
-        int key = *it;
-        std::list<int>::iterator j = it;
-        while (j != lst.begin() && *(--j) > key)
-		{
-            std::iter_swap(j, it);
-            it = j;
+    if (lst.size() <= 1)
+        return;
+
+    // Sort in pairs
+    std::list<int> left, right;
+    std::list<int>::iterator it = lst.begin();
+    while (it != lst.end())
+    {
+        int first = *it;
+        ++it;
+        if (it != lst.end())
+        {
+            int second = *it;
+            if (first < second)
+            {
+                left.push_back(first);
+                right.push_back(second);
+            }
+            else
+            {
+                left.push_back(second);
+                right.push_back(first);
+            }
+            ++it;
         }
-        *it = key;
+        else
+        {
+            left.push_back(first);
+        }
     }
+
+    // Recursively sort the left and right halves
+    fordJohnsonSort(left);
+    fordJohnsonSort(right);
+
+    // Merge the two sorted halves
+    std::list<int> result;
+    merge(left, right, result);
+
+    lst = result;
+}
+
+void PmergeMe::merge(std::vector<int>& left, std::vector<int>& right, std::vector<int>& result)
+{
+    size_t i = 0, j = 0;
+    while (i < left.size() && j < right.size())
+    {
+        if (left[i] < right[j])
+            result.push_back(left[i++]);
+        else
+            result.push_back(right[j++]);
+    }
+    while (i < left.size())
+        result.push_back(left[i++]);
+    while (j < right.size())
+        result.push_back(right[j++]);
+}
+
+void PmergeMe::merge(std::list<int>& left, std::list<int>& right, std::list<int>& result)
+{
+    std::list<int>::iterator itLeft = left.begin(), itRight = right.begin();
+    while (itLeft != left.end() && itRight != right.end())
+    {
+        if (*itLeft < *itRight)
+            result.push_back(*itLeft++);
+        else
+            result.push_back(*itRight++);
+    }
+    while (itLeft != left.end())
+        result.push_back(*itLeft++);
+    while (itRight != right.end())
+        result.push_back(*itRight++);
 }

@@ -4,10 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include <string>
+#include <ctime>
 #include <algorithm>
-#include <stdexcept>
-#include <chrono>
 
 class PmergeMe {
 public:
@@ -19,8 +17,9 @@ private:
     std::vector<int> sortedVector;
     std::list<int> sortedList;
 
-    void mergeInsertionSort(std::vector<int>& vec);
-    void mergeInsertionSort(std::list<int>& lst);
+    void fordJohnsonSort(std::vector<int>& vec);
+    void fordJohnsonSort(std::list<int>& lst);
+    void merge(std::vector<int>& left, std::vector<int>& right, std::vector<int>& result);
+    void merge(std::list<int>& left, std::list<int>& right, std::list<int>& result);
 };
-
 #endif

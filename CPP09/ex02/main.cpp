@@ -16,15 +16,14 @@ int main(int argc, char** argv)
     for (int i = 1; i < argc; ++i)
     {
         try {
-            int num = std::stoi(argv[i]);
-            if (num < 0)
-            {
-                std::cerr << "Error: all numbers must be positive integers." << std::endl;
-                return 1;
-            }
-            numbers.push_back(num);
+            int num = std::atoi(argv[i]); // Use atoi instead of stoi
+            if (num < 0) {
+               std::cerr << "Error: all numbers must be positive integers." << std::endl;
+               return 1;
+              }
+                numbers.push_back(num);
             numberList.push_back(num);
-        } catch (const std::invalid_argument& e)
+} catch (const std::invalid_argument& e)
         {
             std::cerr << "Error: invalid number => " << argv[i] << std::endl;
             return 1;

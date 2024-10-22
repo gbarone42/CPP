@@ -170,8 +170,8 @@ void PmergeMe::merge(std::list<int>& left, std::list<int>& right, std::list<int>
         result.push_back(*itRight++);
 }
 
-
-
+//std::vector provides contiguous memory allocation and allows constant time access to elements via indexing
+//std::list (a doubly linked list) provides constant time insertion and deletion from both ends and anywhere in the middle.
 /*
 // Default Constructor
 PmergeMe::PmergeMe() {

@@ -69,6 +69,10 @@ void RPN::evaluate(const std::string& expression)
     std::cout << numbers.top() << std::endl;
 }
 
+/*
+The std::stack provides a simple interface with the essential operations: push(), pop(), and top().
+These operations allow us to easily manage the operands as they come in from the RPN expression and perform operations with minimal complexity.
+*/
 
 /*
 

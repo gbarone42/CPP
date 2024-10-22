@@ -102,7 +102,18 @@ void BitcoinExchange::calculateValue(const std::string& input)
             return;
 
         }
+            if (date < "2009-01-02")
+        {
+            std::cerr << "Error: " << date << " — Bitcoin network was not launched before this date." << std::endl;
+            return;
+        }
 
+
+        if (date > "2022-03-29")
+        {
+            std::cerr << "Error: " << date << " — Date is beyond the available database. Anyway, BTC will go to the moon." << std::endl;
+            return;
+        }
 
 
         if (value < 0)
@@ -136,6 +147,11 @@ void BitcoinExchange::calculateValue(const std::string& input)
     }
 }
 
+
+
+/*
+std::map automatically orders the dates in ascending order: As you insert data (key-value pairs) into the std::map, the keys (dates in this case) are automatically kept in ascending order
+*/
 /*
 BitcoinExchange::BitcoinExchange() {}
 
